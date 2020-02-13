@@ -18,7 +18,7 @@ import Redemption from '../model/Redemption';
 /**
  * Redemptions service.
  * @module api/RedemptionsApi
- * @version 2.0
+ * @version 2.0.0
  */
 export default class RedemptionsApi {
 

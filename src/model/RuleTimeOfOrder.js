@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RuleTimeOfOrder model module.
  * @module model/RuleTimeOfOrder
- * @version 2.0
+ * @version 2.0.0
  */
 class RuleTimeOfOrder {
     /**

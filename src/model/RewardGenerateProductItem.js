@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RewardGenerateProductItem model module.
  * @module model/RewardGenerateProductItem
- * @version 2.0
+ * @version 2.0.0
  */
 class RewardGenerateProductItem {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RewardAssignVoucher model module.
  * @module model/RewardAssignVoucher
- * @version 2.0
+ * @version 2.0.0
  */
 class RewardAssignVoucher {
     /**

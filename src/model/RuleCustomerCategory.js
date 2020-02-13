@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RuleCustomerCategory model module.
  * @module model/RuleCustomerCategory
- * @version 2.0
+ * @version 2.0.0
  */
 class RuleCustomerCategory {
     /**

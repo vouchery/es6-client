@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Trigger model module.
  * @module model/Trigger
- * @version 2.0
+ * @version 2.0.0
  */
 class Trigger {
     /**

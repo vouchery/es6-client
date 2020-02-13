@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RewardSetDiscount model module.
  * @module model/RewardSetDiscount
- * @version 2.0
+ * @version 2.0.0
  */
 class RewardSetDiscount {
     /**

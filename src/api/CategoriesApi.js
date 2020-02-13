@@ -18,7 +18,7 @@ import Category from '../model/Category';
 /**
  * Categories service.
  * @module api/CategoriesApi
- * @version 2.0
+ * @version 2.0.0
  */
 export default class CategoriesApi {
 

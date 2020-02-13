@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Rule model module.
  * @module model/Rule
- * @version 2.0
+ * @version 2.0.0
  */
 class Rule {
     /**

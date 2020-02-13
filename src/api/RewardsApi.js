@@ -20,7 +20,7 @@ import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
 /**
  * Rewards service.
  * @module api/RewardsApi
- * @version 2.0
+ * @version 2.0.0
  */
 export default class RewardsApi {
 

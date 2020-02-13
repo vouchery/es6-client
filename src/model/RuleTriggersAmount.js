@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RuleTriggersAmount model module.
  * @module model/RuleTriggersAmount
- * @version 2.0
+ * @version 2.0.0
  */
 class RuleTriggersAmount {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RewardGenerateVoucher model module.
  * @module model/RewardGenerateVoucher
- * @version 2.0
+ * @version 2.0.0
  */
 class RewardGenerateVoucher {
     /**

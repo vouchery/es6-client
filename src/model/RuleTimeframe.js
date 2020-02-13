@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RuleTimeframe model module.
  * @module model/RuleTimeframe
- * @version 2.0
+ * @version 2.0.0
  */
 class RuleTimeframe {
     /**

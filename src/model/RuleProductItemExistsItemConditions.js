@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RuleProductItemExistsItemConditions model module.
  * @module model/RuleProductItemExistsItemConditions
- * @version 2.0
+ * @version 2.0.0
  */
 class RuleProductItemExistsItemConditions {
     /**
