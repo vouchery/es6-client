@@ -13,9 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import AnyOfRewardGenerateVoucherRewardSetDiscountRewardSetDiscountPerItemRewardGenerateProductItemRewardAddPointsRewardAssignVoucher from '../model/AnyOfRewardGenerateVoucherRewardSetDiscountRewardSetDiscountPerItemRewardGenerateProductItemRewardAddPointsRewardAssignVoucher';
-import Reward from '../model/Reward';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
+import Reward from '../Vouchery/Reward';
 
 /**
  * Rewards service.
@@ -36,25 +34,17 @@ export default class RewardsApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the createReward operation.
-     * @callback module:api/RewardsApi~createRewardCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Reward} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a reward
      * @param {Number} campaignId Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
-     * @param {module:api/RewardsApi~createRewardCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Reward}
+     * @param {module:Vouchery/Reward} opts.reward 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Reward} and HTTP response
      */
-    createReward(campaignId, opts, callback) {
+    createRewardWithHttpInfo(campaignId, opts) {
         opts = opts || {};
-        let postBody = opts['UNKNOWN_BASE_TYPE'];
+        let postBody = opts['reward'];
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
             throw new Error("Missing the required parameter 'campaignId' when calling createReward");
@@ -74,24 +64,31 @@ export default class RewardsApi {
         return this.apiClient.callApi(
             '/campaigns/{campaign_id}/rewards', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the deleteReward operation.
-     * @callback module:api/RewardsApi~deleteRewardCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a reward
+     * @param {Number} campaignId Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Reward} opts.reward 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Reward}
      */
+    createReward(campaignId, opts) {
+        return this.createRewardWithHttpInfo(campaignId, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Delete a reward
      * @param {Number} id Reward ID
-     * @param {module:api/RewardsApi~deleteRewardCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteReward(id, callback) {
+    deleteRewardWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -112,25 +109,29 @@ export default class RewardsApi {
         return this.apiClient.callApi(
             '/rewards/{id}', 'DELETE',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getReward operation.
-     * @callback module:api/RewardsApi~getRewardCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Reward} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a reward
+     * @param {Number} id Reward ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteReward(id) {
+        return this.deleteRewardWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get a reward
      * @param {Number} id Reward ID
-     * @param {module:api/RewardsApi~getRewardCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Reward}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Reward} and HTTP response
      */
-    getReward(id, callback) {
+    getRewardWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -151,25 +152,29 @@ export default class RewardsApi {
         return this.apiClient.callApi(
             '/rewards/{id}', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getRewards operation.
-     * @callback module:api/RewardsApi~getRewardsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Reward>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get a reward
+     * @param {Number} id Reward ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Reward}
      */
+    getReward(id) {
+        return this.getRewardWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get all rewards for a campaign
      * @param {Number} campaignId Campaign ID
-     * @param {module:api/RewardsApi~getRewardsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Reward>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Reward>} and HTTP response
      */
-    getRewards(campaignId, callback) {
+    getRewardsWithHttpInfo(campaignId) {
         let postBody = null;
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
@@ -190,29 +195,33 @@ export default class RewardsApi {
         return this.apiClient.callApi(
             '/campaigns/{campaign_id}/rewards', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the updateReward operation.
-     * @callback module:api/RewardsApi~updateRewardCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Reward} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get all rewards for a campaign
+     * @param {Number} campaignId Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Reward>}
      */
+    getRewards(campaignId) {
+        return this.getRewardsWithHttpInfo(campaignId)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Update a reward
      * @param {Number} id Reward ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
-     * @param {module:api/RewardsApi~updateRewardCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Reward}
+     * @param {module:Vouchery/Reward} opts.reward 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Reward} and HTTP response
      */
-    updateReward(id, opts, callback) {
+    updateRewardWithHttpInfo(id, opts) {
         opts = opts || {};
-        let postBody = opts['UNKNOWN_BASE_TYPE'];
+        let postBody = opts['reward'];
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
             throw new Error("Missing the required parameter 'id' when calling updateReward");
@@ -232,8 +241,22 @@ export default class RewardsApi {
         return this.apiClient.callApi(
             '/rewards/{id}', 'PATCH',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Update a reward
+     * @param {Number} id Reward ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Reward} opts.reward 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Reward}
+     */
+    updateReward(id, opts) {
+        return this.updateRewardWithHttpInfo(id, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

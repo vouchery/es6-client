@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | What categories should customer belong/not belong to pass the rule. | [default to &#39;customer_category&#39;]
+**type** | **String** |  | 
 **category** | **String** | Name of category, rule will be related to. | [optional] 
 **matchingType** | **String** | any_of means that customer should have tags in mentioned category. none_of - customer shouldn&#39;t have tags. | 
 **tags** | **[String]** |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 
 
-* `customer_category` (value: `"customer_category"`)
+* `CustomerCategory` (value: `"CustomerCategory"`)
 
 
 

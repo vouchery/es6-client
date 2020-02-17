@@ -39,13 +39,12 @@ let id = 56; // Number | Campaign ID
 let opts = {
   'batch': new VoucheryApi.Batch() // Batch | 
 };
-apiInstance.batchGenerateVouchers(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.batchGenerateVouchers(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -91,13 +90,12 @@ let campaignId = 56; // Number | Campaign ID
 let opts = {
   'voucher': new VoucheryApi.Voucher() // Voucher | 
 };
-apiInstance.createVoucher(campaignId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createVoucher(campaignId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -142,13 +140,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let code = "code_example"; // String | Voucher code
-apiInstance.deleteVoucher(code, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteVoucher(code).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -194,13 +191,12 @@ let apiInstance = new VoucheryApi.VouchersApi();
 let opts = {
   'inlineObject4': new VoucheryApi.InlineObject4() // InlineObject4 | 
 };
-apiInstance.expireVouchers(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.expireVouchers(opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -250,13 +246,12 @@ let opts = {
   'channel': ["null"], // [String] | 
   'customerIdentifier': "customerIdentifier_example" // String | \"Assign found voucher to a customer with this identifier. Will create customer if not present. Optional.\"
 };
-apiInstance.findVoucher(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findVoucher(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -302,13 +297,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let code = "code_example"; // String | Voucher code
-apiInstance.getVoucher(code, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getVoucher(code).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -350,13 +344,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let campaignId = 56; // Number | Campaign ID
-apiInstance.getVouchers(campaignId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getVouchers(campaignId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -401,13 +394,12 @@ let id = 56; // Number | Campaign ID
 let opts = {
   'file': "/path/to/file" // File | 
 };
-apiInstance.importVouchers(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.importVouchers(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -455,13 +447,12 @@ let code = "code_example"; // String | Voucher code
 let opts = {
   'voucher': new VoucheryApi.Voucher() // Voucher | 
 };
-apiInstance.updateVoucher(code, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateVoucher(code, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

@@ -28,13 +28,12 @@ let apiInstance = new VoucheryApi.TriggersApi();
 let opts = {
   'trigger': new VoucheryApi.Trigger() // Trigger | 
 };
-apiInstance.createTrigger(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createTrigger(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

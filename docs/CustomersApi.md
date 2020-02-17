@@ -38,13 +38,12 @@ let identifier = "identifier_example"; // String | Customer identifier
 let opts = {
   'inlineObject1': new VoucheryApi.InlineObject1() // InlineObject1 | 
 };
-apiInstance.assignVouchersToCustomer(identifier, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.assignVouchersToCustomer(identifier, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -89,13 +88,12 @@ let apiInstance = new VoucheryApi.CustomersApi();
 let opts = {
   'customer': new VoucheryApi.Customer() // Customer | 
 };
-apiInstance.createCustomer(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createCustomer(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -137,13 +135,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
-apiInstance.deleteCustomer(identifier, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteCustomer(identifier).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -185,13 +182,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
-apiInstance.getCustomer(identifier, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getCustomer(identifier).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -233,13 +229,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
-apiInstance.getCustomerRedemptions(identifier, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getCustomerRedemptions(identifier).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -281,13 +276,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
-apiInstance.getCustomerVouchers(identifier, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getCustomerVouchers(identifier).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -328,13 +322,12 @@ Basic.username = 'YOUR USERNAME';
 Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.CustomersApi();
-apiInstance.getCustomers((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getCustomers().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -375,13 +368,12 @@ let apiInstance = new VoucheryApi.CustomersApi();
 let opts = {
   'file': "/path/to/file" // File | 
 };
-apiInstance.importCustomers(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.importCustomers(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -426,13 +418,12 @@ let identifier = "identifier_example"; // String | Customer identifier
 let opts = {
   'inlineObject': new VoucheryApi.InlineObject() // InlineObject | 
 };
-apiInstance.removeVouchersFromCustomer(identifier, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.removeVouchersFromCustomer(identifier, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -478,13 +469,12 @@ let identifier = "identifier_example"; // String | Customer identifier
 let opts = {
   'customer': new VoucheryApi.Customer() // Customer | 
 };
-apiInstance.updateCustomer(identifier, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateCustomer(identifier, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

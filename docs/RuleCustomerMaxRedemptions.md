@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | Limit the number of redemptions customer can redeem within subcampaign. | [default to &#39;customer_max_redemptions&#39;]
+**type** | **String** |  | 
 **maxRedemptions** | **Number** |  | 
 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 
 
-* `customer_max_redemptions` (value: `"customer_max_redemptions"`)
+* `CustomerMaxRedemptions` (value: `"CustomerMaxRedemptions"`)
 
 
 

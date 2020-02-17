@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import Trigger from '../model/Trigger';
+import Trigger from '../Vouchery/Trigger';
 
 /**
  * Triggers service.
@@ -34,22 +34,14 @@ export default class TriggersApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the createTrigger operation.
-     * @callback module:api/TriggersApi~createTriggerCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Trigger} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a trigger
      * @param {Object} opts Optional parameters
-     * @param {module:model/Trigger} opts.trigger 
-     * @param {module:api/TriggersApi~createTriggerCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Trigger}
+     * @param {module:Vouchery/Trigger} opts.trigger 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Trigger} and HTTP response
      */
-    createTrigger(opts, callback) {
+    createTriggerWithHttpInfo(opts) {
         opts = opts || {};
         let postBody = opts['trigger'];
 
@@ -65,8 +57,21 @@ export default class TriggersApi {
         return this.apiClient.callApi(
             '/triggers', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Create a trigger
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Trigger} opts.trigger 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Trigger}
+     */
+    createTrigger(opts) {
+        return this.createTriggerWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

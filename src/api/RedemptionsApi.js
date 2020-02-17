@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import Redemption from '../model/Redemption';
+import Redemption from '../Vouchery/Redemption';
 
 /**
  * Redemptions service.
@@ -34,22 +34,14 @@ export default class RedemptionsApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the confirmRedemption operation.
-     * @callback module:api/RedemptionsApi~confirmRedemptionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Redemption} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Confirm a redemption
      * @param {String} code Voucher code
      * @param {String} transactionId ID which identifies the transaction in customer system, e.g. order number, invoice number
-     * @param {module:api/RedemptionsApi~confirmRedemptionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Redemption}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Redemption} and HTTP response
      */
-    confirmRedemption(code, transactionId, callback) {
+    confirmRedemptionWithHttpInfo(code, transactionId) {
         let postBody = null;
         // verify the required parameter 'code' is set
         if (code === undefined || code === null) {
@@ -76,27 +68,32 @@ export default class RedemptionsApi {
         return this.apiClient.callApi(
             '/vouchers/{code}/redemptions', 'PATCH',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the createRedemption operation.
-     * @callback module:api/RedemptionsApi~createRedemptionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Redemption} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Confirm a redemption
+     * @param {String} code Voucher code
+     * @param {String} transactionId ID which identifies the transaction in customer system, e.g. order number, invoice number
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Redemption}
      */
+    confirmRedemption(code, transactionId) {
+        return this.confirmRedemptionWithHttpInfo(code, transactionId)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Create a redemption
      * @param {String} code Voucher code
      * @param {Object} opts Optional parameters
-     * @param {module:model/Redemption} opts.redemption 
-     * @param {module:api/RedemptionsApi~createRedemptionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Redemption}
+     * @param {module:Vouchery/Redemption} opts.redemption 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Redemption} and HTTP response
      */
-    createRedemption(code, opts, callback) {
+    createRedemptionWithHttpInfo(code, opts) {
         opts = opts || {};
         let postBody = opts['redemption'];
         // verify the required parameter 'code' is set
@@ -118,25 +115,32 @@ export default class RedemptionsApi {
         return this.apiClient.callApi(
             '/vouchers/{code}/redemptions', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the deleteRedemption operation.
-     * @callback module:api/RedemptionsApi~deleteRedemptionCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a redemption
+     * @param {String} code Voucher code
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Redemption} opts.redemption 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Redemption}
      */
+    createRedemption(code, opts) {
+        return this.createRedemptionWithHttpInfo(code, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Delete a redemption
      * @param {String} code Voucher code
      * @param {String} transactionId ID which identifies the transaction in customer system, e.g. order number, invoice number
-     * @param {module:api/RedemptionsApi~deleteRedemptionCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteRedemption(code, transactionId, callback) {
+    deleteRedemptionWithHttpInfo(code, transactionId) {
         let postBody = null;
         // verify the required parameter 'code' is set
         if (code === undefined || code === null) {
@@ -163,26 +167,31 @@ export default class RedemptionsApi {
         return this.apiClient.callApi(
             '/vouchers/{code}/redemptions', 'DELETE',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getRedemption operation.
-     * @callback module:api/RedemptionsApi~getRedemptionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Redemption} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a redemption
+     * @param {String} code Voucher code
+     * @param {String} transactionId ID which identifies the transaction in customer system, e.g. order number, invoice number
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteRedemption(code, transactionId) {
+        return this.deleteRedemptionWithHttpInfo(code, transactionId)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get a redemption
      * @param {String} code Voucher code
      * @param {String} transactionId ID which identifies the transaction in customer system, e.g. order number, invoice number
-     * @param {module:api/RedemptionsApi~getRedemptionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Redemption}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Redemption} and HTTP response
      */
-    getRedemption(code, transactionId, callback) {
+    getRedemptionWithHttpInfo(code, transactionId) {
         let postBody = null;
         // verify the required parameter 'code' is set
         if (code === undefined || code === null) {
@@ -209,25 +218,30 @@ export default class RedemptionsApi {
         return this.apiClient.callApi(
             '/vouchers/{code}/redemptions', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getRedemptions operation.
-     * @callback module:api/RedemptionsApi~getRedemptionsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Redemption>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get a redemption
+     * @param {String} code Voucher code
+     * @param {String} transactionId ID which identifies the transaction in customer system, e.g. order number, invoice number
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Redemption}
      */
+    getRedemption(code, transactionId) {
+        return this.getRedemptionWithHttpInfo(code, transactionId)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get all redemptions for a campaign
      * @param {Number} campaignId Campaign ID
-     * @param {module:api/RedemptionsApi~getRedemptionsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Redemption>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Redemption>} and HTTP response
      */
-    getRedemptions(campaignId, callback) {
+    getRedemptionsWithHttpInfo(campaignId) {
         let postBody = null;
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
@@ -248,8 +262,20 @@ export default class RedemptionsApi {
         return this.apiClient.callApi(
             '/campaigns/{campaign_id}/redemptions', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Get all redemptions for a campaign
+     * @param {Number} campaignId Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Redemption>}
+     */
+    getRedemptions(campaignId) {
+        return this.getRedemptionsWithHttpInfo(campaignId)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

@@ -31,15 +31,14 @@ Basic.password = 'YOUR PASSWORD';
 let apiInstance = new VoucheryApi.RewardsApi();
 let campaignId = 56; // Number | Campaign ID
 let opts = {
-  'UNKNOWN_BASE_TYPE': new VoucheryApi.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | 
+  'reward': new VoucheryApi.Reward() // Reward | 
 };
-apiInstance.createReward(campaignId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createReward(campaignId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -48,7 +47,7 @@ apiInstance.createReward(campaignId, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignId** | **Number**| Campaign ID | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
+ **reward** | [**Reward**](Reward.md)|  | [optional] 
 
 ### Return type
 
@@ -82,13 +81,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.RewardsApi();
 let id = 56; // Number | Reward ID
-apiInstance.deleteReward(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteReward(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -130,13 +128,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.RewardsApi();
 let id = 56; // Number | Reward ID
-apiInstance.getReward(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getReward(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -178,13 +175,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.RewardsApi();
 let campaignId = 56; // Number | Campaign ID
-apiInstance.getRewards(campaignId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getRewards(campaignId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -227,15 +223,14 @@ Basic.password = 'YOUR PASSWORD';
 let apiInstance = new VoucheryApi.RewardsApi();
 let id = 56; // Number | Reward ID
 let opts = {
-  'UNKNOWN_BASE_TYPE': new VoucheryApi.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | 
+  'reward': new VoucheryApi.Reward() // Reward | 
 };
-apiInstance.updateReward(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateReward(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -244,7 +239,7 @@ apiInstance.updateReward(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Reward ID | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
+ **reward** | [**Reward**](Reward.md)|  | [optional] 
 
 ### Return type
 

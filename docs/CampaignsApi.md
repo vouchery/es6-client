@@ -33,13 +33,12 @@ let apiInstance = new VoucheryApi.CampaignsApi();
 let opts = {
   'campaign': new VoucheryApi.Campaign() // Campaign | 
 };
-apiInstance.createCampaign(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createCampaign(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -81,13 +80,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let id = 56; // Number | Campaign ID
-apiInstance.deleteCampaign(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteCampaign(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -135,13 +133,12 @@ let opts = {
   'triggersOnEq': "triggersOnEq_example", // String | Triggers On
   'triggerNameCont': "triggerNameCont_example" // String | Trigger Name contains
 };
-apiInstance.findSubCampaigns(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findSubCampaigns(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -187,13 +184,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let id = 56; // Number | Campaign ID
-apiInstance.getCampaign(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getCampaign(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -240,13 +236,12 @@ let opts = {
   'statusEq': "statusEq_example", // String | Status
   'templateEq': "templateEq_example" // String | Template (promotion type) of main campaign
 };
-apiInstance.getCampaigns(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getCampaigns(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -294,13 +289,12 @@ let id = 56; // Number | Campaign ID
 let opts = {
   'campaign': new VoucheryApi.Campaign() // Campaign | 
 };
-apiInstance.updateCampaign(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateCampaign(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

@@ -111,14 +111,12 @@ var api = new VoucheryApi.CampaignsApi()
 var opts = {
   'campaign': new VoucheryApi.Campaign() // {Campaign} 
 };
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.createCampaign(opts, callback);
+api.createCampaign(opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
 
 ```
 

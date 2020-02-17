@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import User from '../model/User';
+import User from '../Vouchery/User';
 
 /**
  * Users service.
@@ -34,20 +34,12 @@ export default class UsersApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the getUsers operation.
-     * @callback module:api/UsersApi~getUsersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/User>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get all users within a project
-     * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/User>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/User>} and HTTP response
      */
-    getUsers(callback) {
+    getUsersWithHttpInfo() {
         let postBody = null;
 
         let pathParams = {};
@@ -62,8 +54,19 @@ export default class UsersApi {
         return this.apiClient.callApi(
             '/users', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Get all users within a project
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/User>}
+     */
+    getUsers() {
+        return this.getUsersWithHttpInfo()
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

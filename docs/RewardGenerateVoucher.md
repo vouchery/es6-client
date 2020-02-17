@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | This reward generates voucher within specific subcampaign, that related only to particular customer. | [default to &#39;generate_voucher&#39;]
+**type** | **String** |  | 
 **title** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **prefix** | **String** | A prefix in all generated vouchers. Needs to be unique within a project. | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 
 
-* `generate_voucher` (value: `"generate_voucher"`)
+* `GenerateVoucher` (value: `"GenerateVoucher"`)
 
 
 

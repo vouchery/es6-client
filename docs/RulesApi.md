@@ -31,15 +31,14 @@ Basic.password = 'YOUR PASSWORD';
 let apiInstance = new VoucheryApi.RulesApi();
 let campaignId = 56; // Number | Campaign ID
 let opts = {
-  'UNKNOWN_BASE_TYPE': new VoucheryApi.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | 
+  'rule': new VoucheryApi.Rule() // Rule | 
 };
-apiInstance.createRule(campaignId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createRule(campaignId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -48,7 +47,7 @@ apiInstance.createRule(campaignId, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignId** | **Number**| Campaign ID | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
+ **rule** | [**Rule**](Rule.md)|  | [optional] 
 
 ### Return type
 
@@ -82,13 +81,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.RulesApi();
 let id = 56; // Number | Rule ID
-apiInstance.deleteRule(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteRule(id).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -130,13 +128,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.RulesApi();
 let id = 56; // Number | Rule ID
-apiInstance.getRule(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getRule(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -178,13 +175,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.RulesApi();
 let campaignId = 56; // Number | Campaign ID
-apiInstance.getRules(campaignId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getRules(campaignId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -227,15 +223,14 @@ Basic.password = 'YOUR PASSWORD';
 let apiInstance = new VoucheryApi.RulesApi();
 let id = 56; // Number | Rule ID
 let opts = {
-  'UNKNOWN_BASE_TYPE': new VoucheryApi.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | 
+  'rule': new VoucheryApi.Rule() // Rule | 
 };
-apiInstance.updateRule(id, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateRule(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -244,7 +239,7 @@ apiInstance.updateRule(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Rule ID | 
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
+ **rule** | [**Rule**](Rule.md)|  | [optional] 
 
 ### Return type
 

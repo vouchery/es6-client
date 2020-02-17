@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | Number of triggers, triggering the subcampaign, should match specific condition. | [default to &#39;triggers_amount&#39;]
+**type** | **String** |  | 
 **operator** | **String** | What kind of check should system do, comparing number of triggers and rule value property. | 
 **value** | **Number** | Value to compare loyalty points with. | 
 **groupBy** | **String** | How exactly should total amount of triggers be calculated. For each customer, subcampaign or other. | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 
 
-* `triggers_amount` (value: `"triggers_amount"`)
+* `TriggersAmount` (value: `"TriggersAmount"`)
 
 
 

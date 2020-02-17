@@ -13,9 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import AnyOfRuleCustomerCategoryRuleCustomerMaxRedemptionsRuleCustomerPointsRuleTimeOfOrderRuleTimeframeRuleTriggersAmountRuleProductItemExists from '../model/AnyOfRuleCustomerCategoryRuleCustomerMaxRedemptionsRuleCustomerPointsRuleTimeOfOrderRuleTimeframeRuleTriggersAmountRuleProductItemExists';
-import Rule from '../model/Rule';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
+import Rule from '../Vouchery/Rule';
 
 /**
  * Rules service.
@@ -36,25 +34,17 @@ export default class RulesApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the createRule operation.
-     * @callback module:api/RulesApi~createRuleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Rule} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a rule
      * @param {Number} campaignId Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
-     * @param {module:api/RulesApi~createRuleCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Rule}
+     * @param {module:Vouchery/Rule} opts.rule 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Rule} and HTTP response
      */
-    createRule(campaignId, opts, callback) {
+    createRuleWithHttpInfo(campaignId, opts) {
         opts = opts || {};
-        let postBody = opts['UNKNOWN_BASE_TYPE'];
+        let postBody = opts['rule'];
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
             throw new Error("Missing the required parameter 'campaignId' when calling createRule");
@@ -74,24 +64,31 @@ export default class RulesApi {
         return this.apiClient.callApi(
             '/campaigns/{campaign_id}/rules', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the deleteRule operation.
-     * @callback module:api/RulesApi~deleteRuleCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a rule
+     * @param {Number} campaignId Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Rule} opts.rule 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Rule}
      */
+    createRule(campaignId, opts) {
+        return this.createRuleWithHttpInfo(campaignId, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Delete a rule
      * @param {Number} id Rule ID
-     * @param {module:api/RulesApi~deleteRuleCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteRule(id, callback) {
+    deleteRuleWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -112,25 +109,29 @@ export default class RulesApi {
         return this.apiClient.callApi(
             '/rules/{id}', 'DELETE',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getRule operation.
-     * @callback module:api/RulesApi~getRuleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Rule} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a rule
+     * @param {Number} id Rule ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteRule(id) {
+        return this.deleteRuleWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get a rule
      * @param {Number} id Rule ID
-     * @param {module:api/RulesApi~getRuleCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Rule}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Rule} and HTTP response
      */
-    getRule(id, callback) {
+    getRuleWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -151,25 +152,29 @@ export default class RulesApi {
         return this.apiClient.callApi(
             '/rules/{id}', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getRules operation.
-     * @callback module:api/RulesApi~getRulesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Rule>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get a rule
+     * @param {Number} id Rule ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Rule}
      */
+    getRule(id) {
+        return this.getRuleWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get all rules for a campaign
      * @param {Number} campaignId Campaign ID
-     * @param {module:api/RulesApi~getRulesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Rule>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Rule>} and HTTP response
      */
-    getRules(campaignId, callback) {
+    getRulesWithHttpInfo(campaignId) {
         let postBody = null;
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
@@ -190,29 +195,33 @@ export default class RulesApi {
         return this.apiClient.callApi(
             '/campaigns/{campaign_id}/rules', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the updateRule operation.
-     * @callback module:api/RulesApi~updateRuleCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Rule} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get all rules for a campaign
+     * @param {Number} campaignId Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Rule>}
      */
+    getRules(campaignId) {
+        return this.getRulesWithHttpInfo(campaignId)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Update a rule
      * @param {Number} id Rule ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
-     * @param {module:api/RulesApi~updateRuleCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Rule}
+     * @param {module:Vouchery/Rule} opts.rule 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Rule} and HTTP response
      */
-    updateRule(id, opts, callback) {
+    updateRuleWithHttpInfo(id, opts) {
         opts = opts || {};
-        let postBody = opts['UNKNOWN_BASE_TYPE'];
+        let postBody = opts['rule'];
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
             throw new Error("Missing the required parameter 'id' when calling updateRule");
@@ -232,8 +241,22 @@ export default class RulesApi {
         return this.apiClient.callApi(
             '/rules/{id}', 'PATCH',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Update a rule
+     * @param {Number} id Rule ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Rule} opts.rule 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Rule}
+     */
+    updateRule(id, opts) {
+        return this.updateRuleWithHttpInfo(id, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

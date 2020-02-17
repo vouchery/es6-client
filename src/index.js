@@ -13,41 +13,41 @@
 
 
 import ApiClient from './ApiClient';
-import Batch from './model/Batch';
-import Campaign from './model/Campaign';
-import Category from './model/Category';
-import Customer from './model/Customer';
-import CustomerCategories from './model/CustomerCategories';
-import Error from './model/Error';
-import ErrorErrors from './model/ErrorErrors';
-import InlineObject from './model/InlineObject';
-import InlineObject1 from './model/InlineObject1';
-import InlineObject2 from './model/InlineObject2';
-import InlineObject3 from './model/InlineObject3';
-import InlineObject4 from './model/InlineObject4';
-import InlineResponse200 from './model/InlineResponse200';
-import Redemption from './model/Redemption';
-import RedemptionProductItems from './model/RedemptionProductItems';
-import RedemptionVoucher from './model/RedemptionVoucher';
-import Reward from './model/Reward';
-import RewardAddPoints from './model/RewardAddPoints';
-import RewardAssignVoucher from './model/RewardAssignVoucher';
-import RewardGenerateProductItem from './model/RewardGenerateProductItem';
-import RewardGenerateVoucher from './model/RewardGenerateVoucher';
-import RewardSetDiscount from './model/RewardSetDiscount';
-import RewardSetDiscountPerItem from './model/RewardSetDiscountPerItem';
-import Rule from './model/Rule';
-import RuleCustomerCategory from './model/RuleCustomerCategory';
-import RuleCustomerMaxRedemptions from './model/RuleCustomerMaxRedemptions';
-import RuleCustomerPoints from './model/RuleCustomerPoints';
-import RuleProductItemExists from './model/RuleProductItemExists';
-import RuleProductItemExistsItemConditions from './model/RuleProductItemExistsItemConditions';
-import RuleTimeOfOrder from './model/RuleTimeOfOrder';
-import RuleTimeframe from './model/RuleTimeframe';
-import RuleTriggersAmount from './model/RuleTriggersAmount';
-import Trigger from './model/Trigger';
-import User from './model/User';
-import Voucher from './model/Voucher';
+import Batch from './Vouchery/Batch';
+import Campaign from './Vouchery/Campaign';
+import Category from './Vouchery/Category';
+import Customer from './Vouchery/Customer';
+import CustomerCategories from './Vouchery/CustomerCategories';
+import Error from './Vouchery/Error';
+import ErrorErrors from './Vouchery/ErrorErrors';
+import InlineObject from './Vouchery/InlineObject';
+import InlineObject1 from './Vouchery/InlineObject1';
+import InlineObject2 from './Vouchery/InlineObject2';
+import InlineObject3 from './Vouchery/InlineObject3';
+import InlineObject4 from './Vouchery/InlineObject4';
+import InlineResponse200 from './Vouchery/InlineResponse200';
+import Redemption from './Vouchery/Redemption';
+import RedemptionProductItems from './Vouchery/RedemptionProductItems';
+import RedemptionVoucher from './Vouchery/RedemptionVoucher';
+import Reward from './Vouchery/Reward';
+import RewardAddPoints from './Vouchery/RewardAddPoints';
+import RewardAssignVoucher from './Vouchery/RewardAssignVoucher';
+import RewardGenerateProductItem from './Vouchery/RewardGenerateProductItem';
+import RewardGenerateVoucher from './Vouchery/RewardGenerateVoucher';
+import RewardSetDiscount from './Vouchery/RewardSetDiscount';
+import RewardSetDiscountPerItem from './Vouchery/RewardSetDiscountPerItem';
+import Rule from './Vouchery/Rule';
+import RuleCustomerCategory from './Vouchery/RuleCustomerCategory';
+import RuleCustomerMaxRedemptions from './Vouchery/RuleCustomerMaxRedemptions';
+import RuleCustomerPoints from './Vouchery/RuleCustomerPoints';
+import RuleProductItemExists from './Vouchery/RuleProductItemExists';
+import RuleProductItemExistsItemConditions from './Vouchery/RuleProductItemExistsItemConditions';
+import RuleTimeOfOrder from './Vouchery/RuleTimeOfOrder';
+import RuleTimeframe from './Vouchery/RuleTimeframe';
+import RuleTriggersAmount from './Vouchery/RuleTriggersAmount';
+import Trigger from './Vouchery/Trigger';
+import User from './Vouchery/User';
+import Voucher from './Vouchery/Voucher';
 import CampaignsApi from './api/CampaignsApi';
 import CategoriesApi from './api/CategoriesApi';
 import CustomersApi from './api/CustomersApi';
@@ -99,211 +99,211 @@ export {
 
     /**
      * The Batch model constructor.
-     * @property {module:model/Batch}
+     * @property {module:Vouchery/Batch}
      */
     Batch,
 
     /**
      * The Campaign model constructor.
-     * @property {module:model/Campaign}
+     * @property {module:Vouchery/Campaign}
      */
     Campaign,
 
     /**
      * The Category model constructor.
-     * @property {module:model/Category}
+     * @property {module:Vouchery/Category}
      */
     Category,
 
     /**
      * The Customer model constructor.
-     * @property {module:model/Customer}
+     * @property {module:Vouchery/Customer}
      */
     Customer,
 
     /**
      * The CustomerCategories model constructor.
-     * @property {module:model/CustomerCategories}
+     * @property {module:Vouchery/CustomerCategories}
      */
     CustomerCategories,
 
     /**
      * The Error model constructor.
-     * @property {module:model/Error}
+     * @property {module:Vouchery/Error}
      */
     Error,
 
     /**
      * The ErrorErrors model constructor.
-     * @property {module:model/ErrorErrors}
+     * @property {module:Vouchery/ErrorErrors}
      */
     ErrorErrors,
 
     /**
      * The InlineObject model constructor.
-     * @property {module:model/InlineObject}
+     * @property {module:Vouchery/InlineObject}
      */
     InlineObject,
 
     /**
      * The InlineObject1 model constructor.
-     * @property {module:model/InlineObject1}
+     * @property {module:Vouchery/InlineObject1}
      */
     InlineObject1,
 
     /**
      * The InlineObject2 model constructor.
-     * @property {module:model/InlineObject2}
+     * @property {module:Vouchery/InlineObject2}
      */
     InlineObject2,
 
     /**
      * The InlineObject3 model constructor.
-     * @property {module:model/InlineObject3}
+     * @property {module:Vouchery/InlineObject3}
      */
     InlineObject3,
 
     /**
      * The InlineObject4 model constructor.
-     * @property {module:model/InlineObject4}
+     * @property {module:Vouchery/InlineObject4}
      */
     InlineObject4,
 
     /**
      * The InlineResponse200 model constructor.
-     * @property {module:model/InlineResponse200}
+     * @property {module:Vouchery/InlineResponse200}
      */
     InlineResponse200,
 
     /**
      * The Redemption model constructor.
-     * @property {module:model/Redemption}
+     * @property {module:Vouchery/Redemption}
      */
     Redemption,
 
     /**
      * The RedemptionProductItems model constructor.
-     * @property {module:model/RedemptionProductItems}
+     * @property {module:Vouchery/RedemptionProductItems}
      */
     RedemptionProductItems,
 
     /**
      * The RedemptionVoucher model constructor.
-     * @property {module:model/RedemptionVoucher}
+     * @property {module:Vouchery/RedemptionVoucher}
      */
     RedemptionVoucher,
 
     /**
      * The Reward model constructor.
-     * @property {module:model/Reward}
+     * @property {module:Vouchery/Reward}
      */
     Reward,
 
     /**
      * The RewardAddPoints model constructor.
-     * @property {module:model/RewardAddPoints}
+     * @property {module:Vouchery/RewardAddPoints}
      */
     RewardAddPoints,
 
     /**
      * The RewardAssignVoucher model constructor.
-     * @property {module:model/RewardAssignVoucher}
+     * @property {module:Vouchery/RewardAssignVoucher}
      */
     RewardAssignVoucher,
 
     /**
      * The RewardGenerateProductItem model constructor.
-     * @property {module:model/RewardGenerateProductItem}
+     * @property {module:Vouchery/RewardGenerateProductItem}
      */
     RewardGenerateProductItem,
 
     /**
      * The RewardGenerateVoucher model constructor.
-     * @property {module:model/RewardGenerateVoucher}
+     * @property {module:Vouchery/RewardGenerateVoucher}
      */
     RewardGenerateVoucher,
 
     /**
      * The RewardSetDiscount model constructor.
-     * @property {module:model/RewardSetDiscount}
+     * @property {module:Vouchery/RewardSetDiscount}
      */
     RewardSetDiscount,
 
     /**
      * The RewardSetDiscountPerItem model constructor.
-     * @property {module:model/RewardSetDiscountPerItem}
+     * @property {module:Vouchery/RewardSetDiscountPerItem}
      */
     RewardSetDiscountPerItem,
 
     /**
      * The Rule model constructor.
-     * @property {module:model/Rule}
+     * @property {module:Vouchery/Rule}
      */
     Rule,
 
     /**
      * The RuleCustomerCategory model constructor.
-     * @property {module:model/RuleCustomerCategory}
+     * @property {module:Vouchery/RuleCustomerCategory}
      */
     RuleCustomerCategory,
 
     /**
      * The RuleCustomerMaxRedemptions model constructor.
-     * @property {module:model/RuleCustomerMaxRedemptions}
+     * @property {module:Vouchery/RuleCustomerMaxRedemptions}
      */
     RuleCustomerMaxRedemptions,
 
     /**
      * The RuleCustomerPoints model constructor.
-     * @property {module:model/RuleCustomerPoints}
+     * @property {module:Vouchery/RuleCustomerPoints}
      */
     RuleCustomerPoints,
 
     /**
      * The RuleProductItemExists model constructor.
-     * @property {module:model/RuleProductItemExists}
+     * @property {module:Vouchery/RuleProductItemExists}
      */
     RuleProductItemExists,
 
     /**
      * The RuleProductItemExistsItemConditions model constructor.
-     * @property {module:model/RuleProductItemExistsItemConditions}
+     * @property {module:Vouchery/RuleProductItemExistsItemConditions}
      */
     RuleProductItemExistsItemConditions,
 
     /**
      * The RuleTimeOfOrder model constructor.
-     * @property {module:model/RuleTimeOfOrder}
+     * @property {module:Vouchery/RuleTimeOfOrder}
      */
     RuleTimeOfOrder,
 
     /**
      * The RuleTimeframe model constructor.
-     * @property {module:model/RuleTimeframe}
+     * @property {module:Vouchery/RuleTimeframe}
      */
     RuleTimeframe,
 
     /**
      * The RuleTriggersAmount model constructor.
-     * @property {module:model/RuleTriggersAmount}
+     * @property {module:Vouchery/RuleTriggersAmount}
      */
     RuleTriggersAmount,
 
     /**
      * The Trigger model constructor.
-     * @property {module:model/Trigger}
+     * @property {module:Vouchery/Trigger}
      */
     Trigger,
 
     /**
      * The User model constructor.
-     * @property {module:model/User}
+     * @property {module:Vouchery/User}
      */
     User,
 
     /**
      * The Voucher model constructor.
-     * @property {module:model/Voucher}
+     * @property {module:Vouchery/Voucher}
      */
     Voucher,
 

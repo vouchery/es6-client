@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | Customer loyalty points should fit specific conditions. | [default to &#39;customer_points&#39;]
+**type** | **String** | Customer loyalty points should fit specific conditions. | 
 **operator** | **String** | What kind of check should system do, comparing loyalty points and rule value property. | 
 **value** | **Number** | Value to compare loyalty points with. | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 
 
-* `customer_points` (value: `"customer_points"`)
+* `CustomerPoints` (value: `"CustomerPoints"`)
 
 
 

@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import Campaign from '../model/Campaign';
+import Campaign from '../Vouchery/Campaign';
 
 /**
  * Campaigns service.
@@ -34,22 +34,14 @@ export default class CampaignsApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the createCampaign operation.
-     * @callback module:api/CampaignsApi~createCampaignCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Campaign} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a campaign
      * @param {Object} opts Optional parameters
-     * @param {module:model/Campaign} opts.campaign 
-     * @param {module:api/CampaignsApi~createCampaignCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Campaign}
+     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Campaign} and HTTP response
      */
-    createCampaign(opts, callback) {
+    createCampaignWithHttpInfo(opts) {
         opts = opts || {};
         let postBody = opts['campaign'];
 
@@ -65,24 +57,30 @@ export default class CampaignsApi {
         return this.apiClient.callApi(
             '/campaigns', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the deleteCampaign operation.
-     * @callback module:api/CampaignsApi~deleteCampaignCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a campaign
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Campaign}
      */
+    createCampaign(opts) {
+        return this.createCampaignWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Delete a campaign
      * @param {Number} id Campaign ID
-     * @param {module:api/CampaignsApi~deleteCampaignCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteCampaign(id, callback) {
+    deleteCampaignWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -103,17 +101,22 @@ export default class CampaignsApi {
         return this.apiClient.callApi(
             '/campaigns/{id}', 'DELETE',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the findSubCampaigns operation.
-     * @callback module:api/CampaignsApi~findSubCampaignsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Campaign>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a campaign
+     * @param {Number} id Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteCampaign(id) {
+        return this.deleteCampaignWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get sub campaigns by params
@@ -123,10 +126,9 @@ export default class CampaignsApi {
      * @param {String} opts.templateEq Template (type) of sub campaign
      * @param {String} opts.triggersOnEq Triggers On
      * @param {String} opts.triggerNameCont Trigger Name contains
-     * @param {module:api/CampaignsApi~findSubCampaignsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Campaign>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Campaign>} and HTTP response
      */
-    findSubCampaigns(opts, callback) {
+    findSubCampaignsWithHttpInfo(opts) {
         opts = opts || {};
         let postBody = null;
 
@@ -148,25 +150,34 @@ export default class CampaignsApi {
         return this.apiClient.callApi(
             '/campaigns/sub', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getCampaign operation.
-     * @callback module:api/CampaignsApi~getCampaignCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Campaign} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get sub campaigns by params
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.nameCont Name contains
+     * @param {String} opts.statusEq Status
+     * @param {String} opts.templateEq Template (type) of sub campaign
+     * @param {String} opts.triggersOnEq Triggers On
+     * @param {String} opts.triggerNameCont Trigger Name contains
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Campaign>}
      */
+    findSubCampaigns(opts) {
+        return this.findSubCampaignsWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get a campaign
      * @param {Number} id Campaign ID
-     * @param {module:api/CampaignsApi~getCampaignCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Campaign}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Campaign} and HTTP response
      */
-    getCampaign(id, callback) {
+    getCampaignWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -187,17 +198,22 @@ export default class CampaignsApi {
         return this.apiClient.callApi(
             '/campaigns/{id}', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getCampaigns operation.
-     * @callback module:api/CampaignsApi~getCampaignsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Campaign>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get a campaign
+     * @param {Number} id Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Campaign}
      */
+    getCampaign(id) {
+        return this.getCampaignWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get main campaigns with children by params
@@ -206,10 +222,9 @@ export default class CampaignsApi {
      * @param {String} opts.teamEq Team
      * @param {String} opts.statusEq Status
      * @param {String} opts.templateEq Template (promotion type) of main campaign
-     * @param {module:api/CampaignsApi~getCampaignsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Campaign>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Campaign>} and HTTP response
      */
-    getCampaigns(opts, callback) {
+    getCampaignsWithHttpInfo(opts) {
         opts = opts || {};
         let postBody = null;
 
@@ -230,27 +245,35 @@ export default class CampaignsApi {
         return this.apiClient.callApi(
             '/campaigns', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the updateCampaign operation.
-     * @callback module:api/CampaignsApi~updateCampaignCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Campaign} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get main campaigns with children by params
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.nameCont Name contains
+     * @param {String} opts.teamEq Team
+     * @param {String} opts.statusEq Status
+     * @param {String} opts.templateEq Template (promotion type) of main campaign
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Campaign>}
      */
+    getCampaigns(opts) {
+        return this.getCampaignsWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Update a campaign
      * @param {Number} id Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/Campaign} opts.campaign 
-     * @param {module:api/CampaignsApi~updateCampaignCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Campaign}
+     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Campaign} and HTTP response
      */
-    updateCampaign(id, opts, callback) {
+    updateCampaignWithHttpInfo(id, opts) {
         opts = opts || {};
         let postBody = opts['campaign'];
         // verify the required parameter 'id' is set
@@ -272,8 +295,22 @@ export default class CampaignsApi {
         return this.apiClient.callApi(
             '/campaigns/{id}', 'PATCH',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Update a campaign
+     * @param {Number} id Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Campaign}
+     */
+    updateCampaign(id, opts) {
+        return this.updateCampaignWithHttpInfo(id, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

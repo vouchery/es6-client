@@ -13,10 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
-import Batch from '../model/Batch';
-import InlineObject4 from '../model/InlineObject4';
-import InlineResponse200 from '../model/InlineResponse200';
-import Voucher from '../model/Voucher';
+import Batch from '../Vouchery/Batch';
+import InlineObject4 from '../Vouchery/InlineObject4';
+import InlineResponse200 from '../Vouchery/InlineResponse200';
+import Voucher from '../Vouchery/Voucher';
 
 /**
  * Vouchers service.
@@ -37,24 +37,16 @@ export default class VouchersApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the batchGenerateVouchers operation.
-     * @callback module:api/VouchersApi~batchGenerateVouchersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Voucher>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Batch create vouchers
      *  <p>Generate a batch of unique vouchers. Each voucher will be created using <code>{prefix}-{random code}</code> format where code will be a random string of requested type and length. <strong>A prefix needs to be unique within a project.</strong></p> <p> Following code types are supported: <ul> <li>digits</li> <li>letters</li> <li>mixed (digits and letters)</li> </ul> </p> <p>Allowed characters for each code type have been filtered to avoid typing mistakes. Maximum number of codes possible to generate in one batch request is 50 000.</p>
      * @param {Number} id Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/Batch} opts.batch 
-     * @param {module:api/VouchersApi~batchGenerateVouchersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Voucher>}
+     * @param {module:Vouchery/Batch} opts.batch 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Voucher>} and HTTP response
      */
-    batchGenerateVouchers(id, opts, callback) {
+    batchGenerateVouchersWithHttpInfo(id, opts) {
         opts = opts || {};
         let postBody = opts['batch'];
         // verify the required parameter 'id' is set
@@ -76,27 +68,34 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/campaigns/{id}/vouchers/batch', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the createVoucher operation.
-     * @callback module:api/VouchersApi~createVoucherCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Voucher} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Batch create vouchers
+     *  <p>Generate a batch of unique vouchers. Each voucher will be created using <code>{prefix}-{random code}</code> format where code will be a random string of requested type and length. <strong>A prefix needs to be unique within a project.</strong></p> <p> Following code types are supported: <ul> <li>digits</li> <li>letters</li> <li>mixed (digits and letters)</li> </ul> </p> <p>Allowed characters for each code type have been filtered to avoid typing mistakes. Maximum number of codes possible to generate in one batch request is 50 000.</p>
+     * @param {Number} id Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Batch} opts.batch 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Voucher>}
      */
+    batchGenerateVouchers(id, opts) {
+        return this.batchGenerateVouchersWithHttpInfo(id, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Create a voucher
      * @param {Number} campaignId Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/Voucher} opts.voucher 
-     * @param {module:api/VouchersApi~createVoucherCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Voucher}
+     * @param {module:Vouchery/Voucher} opts.voucher 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Voucher} and HTTP response
      */
-    createVoucher(campaignId, opts, callback) {
+    createVoucherWithHttpInfo(campaignId, opts) {
         opts = opts || {};
         let postBody = opts['voucher'];
         // verify the required parameter 'campaignId' is set
@@ -118,25 +117,32 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/campaigns/{campaign_id}/vouchers', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the deleteVoucher operation.
-     * @callback module:api/VouchersApi~deleteVoucherCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a voucher
+     * @param {Number} campaignId Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Voucher} opts.voucher 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Voucher}
      */
+    createVoucher(campaignId, opts) {
+        return this.createVoucherWithHttpInfo(campaignId, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Delete a voucher
      * Delete a single voucher. Vouchers with at least one confirmed redemption can not be deleted.
      * @param {String} code Voucher code
-     * @param {module:api/VouchersApi~deleteVoucherCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteVoucher(code, callback) {
+    deleteVoucherWithHttpInfo(code) {
         let postBody = null;
         // verify the required parameter 'code' is set
         if (code === undefined || code === null) {
@@ -157,26 +163,32 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/vouchers/{code}', 'DELETE',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the expireVouchers operation.
-     * @callback module:api/VouchersApi~expireVouchersCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete a voucher
+     * Delete a single voucher. Vouchers with at least one confirmed redemption can not be deleted.
+     * @param {String} code Voucher code
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteVoucher(code) {
+        return this.deleteVoucherWithHttpInfo(code)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Expire a list of vouchers
      * Given a list of voucher codes, change their status to expired, unless they have been redeemed.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject4} opts.inlineObject4 
-     * @param {module:api/VouchersApi~expireVouchersCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:Vouchery/InlineObject4} opts.inlineObject4 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    expireVouchers(opts, callback) {
+    expireVouchersWithHttpInfo(opts) {
         opts = opts || {};
         let postBody = opts['inlineObject4'];
 
@@ -192,17 +204,24 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/campaigns/vouchers/expire', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the findVoucher operation.
-     * @callback module:api/VouchersApi~findVoucherCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Voucher} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Expire a list of vouchers
+     * Given a list of voucher codes, change their status to expired, unless they have been redeemed.
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/InlineObject4} opts.inlineObject4 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    expireVouchers(opts) {
+        return this.expireVouchersWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Find a voucher by campaign metadata
@@ -213,10 +232,9 @@ export default class VouchersApi {
      * @param {Array.<String>} opts.team 
      * @param {Array.<String>} opts.channel 
      * @param {String} opts.customerIdentifier \"Assign found voucher to a customer with this identifier. Will create customer if not present. Optional.\"
-     * @param {module:api/VouchersApi~findVoucherCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Voucher}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Voucher} and HTTP response
      */
-    findVoucher(opts, callback) {
+    findVoucherWithHttpInfo(opts) {
         opts = opts || {};
         let postBody = null;
 
@@ -238,25 +256,35 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/vouchers/find', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getVoucher operation.
-     * @callback module:api/VouchersApi~getVoucherCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Voucher} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Find a voucher by campaign metadata
+     * <p>Find voucher by campaign metadata.</p> <p>   Optionally assign found voucher to a customer by passing customer_identifier param.   All vouchers for a customer can be fetched at <a href=\"#get_customers-identifier-vouchers\">/customers/{id}/vouchers</a>. </p> <p>If no voucher is available this endpoint will return an empty response and HTTP code <code>204 No content</code></p> <p>At least one metadata must be provided, otherwise no voucher will be returned.</p> 
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.medium 
+     * @param {Array.<String>} opts.purpose 
+     * @param {Array.<String>} opts.team 
+     * @param {Array.<String>} opts.channel 
+     * @param {String} opts.customerIdentifier \"Assign found voucher to a customer with this identifier. Will create customer if not present. Optional.\"
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Voucher}
      */
+    findVoucher(opts) {
+        return this.findVoucherWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get a voucher
      * @param {String} code Voucher code
-     * @param {module:api/VouchersApi~getVoucherCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Voucher}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Voucher} and HTTP response
      */
-    getVoucher(code, callback) {
+    getVoucherWithHttpInfo(code) {
         let postBody = null;
         // verify the required parameter 'code' is set
         if (code === undefined || code === null) {
@@ -277,25 +305,29 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/vouchers/{code}', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getVouchers operation.
-     * @callback module:api/VouchersApi~getVouchersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Voucher>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get a voucher
+     * @param {String} code Voucher code
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Voucher}
      */
+    getVoucher(code) {
+        return this.getVoucherWithHttpInfo(code)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get all vouchers for a campaign
      * @param {Number} campaignId Campaign ID
-     * @param {module:api/VouchersApi~getVouchersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Voucher>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Voucher>} and HTTP response
      */
-    getVouchers(campaignId, callback) {
+    getVouchersWithHttpInfo(campaignId) {
         let postBody = null;
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
@@ -316,27 +348,31 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/campaigns/{campaign_id}/vouchers', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the importVouchers operation.
-     * @callback module:api/VouchersApi~importVouchersCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/InlineResponse200} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get all vouchers for a campaign
+     * @param {Number} campaignId Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Voucher>}
      */
+    getVouchers(campaignId) {
+        return this.getVouchersWithHttpInfo(campaignId)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Import your own vouchers
      * @param {Number} id Campaign ID
      * @param {Object} opts Optional parameters
      * @param {File} opts.file 
-     * @param {module:api/VouchersApi~importVouchersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/InlineResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/InlineResponse200} and HTTP response
      */
-    importVouchers(id, opts, callback) {
+    importVouchersWithHttpInfo(id, opts) {
         opts = opts || {};
         let postBody = null;
         // verify the required parameter 'id' is set
@@ -360,28 +396,34 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/campaigns/{id}/vouchers/import', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the updateVoucher operation.
-     * @callback module:api/VouchersApi~updateVoucherCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Voucher} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Import your own vouchers
+     * @param {Number} id Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {File} opts.file 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/InlineResponse200}
      */
+    importVouchers(id, opts) {
+        return this.importVouchersWithHttpInfo(id, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Update a voucher
      * Only voucher status can be updated.
      * @param {String} code Voucher code
      * @param {Object} opts Optional parameters
-     * @param {module:model/Voucher} opts.voucher 
-     * @param {module:api/VouchersApi~updateVoucherCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Voucher}
+     * @param {module:Vouchery/Voucher} opts.voucher 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Voucher} and HTTP response
      */
-    updateVoucher(code, opts, callback) {
+    updateVoucherWithHttpInfo(code, opts) {
         opts = opts || {};
         let postBody = opts['voucher'];
         // verify the required parameter 'code' is set
@@ -403,8 +445,23 @@ export default class VouchersApi {
         return this.apiClient.callApi(
             '/vouchers/{code}', 'PATCH',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Update a voucher
+     * Only voucher status can be updated.
+     * @param {String} code Voucher code
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Voucher} opts.voucher 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Voucher}
+     */
+    updateVoucher(code, opts) {
+        return this.updateVoucherWithHttpInfo(code, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import Category from '../model/Category';
+import Category from '../Vouchery/Category';
 
 /**
  * Categories service.
@@ -34,22 +34,14 @@ export default class CategoriesApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the createCategory operation.
-     * @callback module:api/CategoriesApi~createCategoryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Category} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create a category
      * @param {Object} opts Optional parameters
-     * @param {module:model/Category} opts.category 
-     * @param {module:api/CategoriesApi~createCategoryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Category}
+     * @param {module:Vouchery/Category} opts.category 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Category} and HTTP response
      */
-    createCategory(opts, callback) {
+    createCategoryWithHttpInfo(opts) {
         opts = opts || {};
         let postBody = opts['category'];
 
@@ -65,24 +57,30 @@ export default class CategoriesApi {
         return this.apiClient.callApi(
             '/categories', 'POST',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the deleteCategory operation.
-     * @callback module:api/CategoriesApi~deleteCategoryCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a category
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Category} opts.category 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Category}
      */
+    createCategory(opts) {
+        return this.createCategoryWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Delete a category
      * @param {Number} id Category ID
-     * @param {module:api/CategoriesApi~deleteCategoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteCategory(id, callback) {
+    deleteCategoryWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -103,24 +101,28 @@ export default class CategoriesApi {
         return this.apiClient.callApi(
             '/categories/{id}', 'DELETE',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getCategories operation.
-     * @callback module:api/CategoriesApi~getCategoriesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Category>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a category
+     * @param {Number} id Category ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteCategory(id) {
+        return this.deleteCategoryWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get all categories for a campaign
-     * @param {module:api/CategoriesApi~getCategoriesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Category>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Category>} and HTTP response
      */
-    getCategories(callback) {
+    getCategoriesWithHttpInfo() {
         let postBody = null;
 
         let pathParams = {};
@@ -135,25 +137,28 @@ export default class CategoriesApi {
         return this.apiClient.callApi(
             '/categories', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the getCategory operation.
-     * @callback module:api/CategoriesApi~getCategoryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Category} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get all categories for a campaign
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Category>}
      */
+    getCategories() {
+        return this.getCategoriesWithHttpInfo()
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Get a category
      * @param {Number} id Category ID
-     * @param {module:api/CategoriesApi~getCategoryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Category}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Category} and HTTP response
      */
-    getCategory(id, callback) {
+    getCategoryWithHttpInfo(id) {
         let postBody = null;
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
@@ -174,27 +179,31 @@ export default class CategoriesApi {
         return this.apiClient.callApi(
             '/categories/{id}', 'GET',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
     }
 
     /**
-     * Callback function to receive the result of the updateCategory operation.
-     * @callback module:api/CategoriesApi~updateCategoryCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Category} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get a category
+     * @param {Number} id Category ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Category}
      */
+    getCategory(id) {
+        return this.getCategoryWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
 
     /**
      * Update a category
      * @param {Number} id Category ID
      * @param {Object} opts Optional parameters
-     * @param {module:model/Category} opts.category 
-     * @param {module:api/CategoriesApi~updateCategoryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Category}
+     * @param {module:Vouchery/Category} opts.category 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Category} and HTTP response
      */
-    updateCategory(id, opts, callback) {
+    updateCategoryWithHttpInfo(id, opts) {
         opts = opts || {};
         let postBody = opts['category'];
         // verify the required parameter 'id' is set
@@ -216,8 +225,22 @@ export default class CategoriesApi {
         return this.apiClient.callApi(
             '/categories/{id}', 'PATCH',
             pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null, callback
+            authNames, contentTypes, accepts, returnType, null
         );
+    }
+
+    /**
+     * Update a category
+     * @param {Number} id Category ID
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/Category} opts.category 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Category}
+     */
+    updateCategory(id, opts) {
+        return this.updateCategoryWithHttpInfo(id, opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
     }
 
 

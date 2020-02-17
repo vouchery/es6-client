@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**type** | **String** |  | 
 **id** | **Number** |  | [optional] [readonly] 
 **campaignId** | **Number** |  | [optional] [readonly] 
 **active** | **Boolean** |  | [readonly] 
@@ -12,6 +13,15 @@ Name | Type | Description | Notes
 **customerIdentifier** | **String** | A string uniquely identifying customer in your system. Please check customers API. | [optional] 
 **createdAt** | **Date** |  | [optional] [readonly] 
 **updatedAt** | **Date** |  | [optional] [readonly] 
+
+
+
+## Enum: TypeEnum
+
+
+* `Voucher` (value: `"Voucher"`)
+
+
 
 
 

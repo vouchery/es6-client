@@ -31,13 +31,12 @@ Basic.password = 'YOUR PASSWORD';
 let apiInstance = new VoucheryApi.RedemptionsApi();
 let code = "code_example"; // String | Voucher code
 let transactionId = "transactionId_example"; // String | ID which identifies the transaction in customer system, e.g. order number, invoice number
-apiInstance.confirmRedemption(code, transactionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.confirmRedemption(code, transactionId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -83,13 +82,12 @@ let code = "code_example"; // String | Voucher code
 let opts = {
   'redemption': new VoucheryApi.Redemption() // Redemption | 
 };
-apiInstance.createRedemption(code, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createRedemption(code, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -133,13 +131,12 @@ Basic.password = 'YOUR PASSWORD';
 let apiInstance = new VoucheryApi.RedemptionsApi();
 let code = "code_example"; // String | Voucher code
 let transactionId = "transactionId_example"; // String | ID which identifies the transaction in customer system, e.g. order number, invoice number
-apiInstance.deleteRedemption(code, transactionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteRedemption(code, transactionId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -183,13 +180,12 @@ Basic.password = 'YOUR PASSWORD';
 let apiInstance = new VoucheryApi.RedemptionsApi();
 let code = "code_example"; // String | Voucher code
 let transactionId = "transactionId_example"; // String | ID which identifies the transaction in customer system, e.g. order number, invoice number
-apiInstance.getRedemption(code, transactionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getRedemption(code, transactionId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -232,13 +228,12 @@ Basic.password = 'YOUR PASSWORD';
 
 let apiInstance = new VoucheryApi.RedemptionsApi();
 let campaignId = 56; // Number | Campaign ID
-apiInstance.getRedemptions(campaignId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getRedemptions(campaignId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
