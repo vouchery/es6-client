@@ -84,6 +84,8 @@ Name | Type | Description | Notes
 
 * `not_match` (value: `"not_match"`)
 
+* `can_not_expire_redeemed` (value: `"can_not_expire_redeemed"`)
+
 
 
 

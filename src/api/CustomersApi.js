@@ -62,7 +62,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Customer;
@@ -103,7 +103,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Customer;
@@ -147,7 +147,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = [];
         let returnType = null;
@@ -190,7 +190,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Customer;
@@ -233,7 +233,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Redemption];
@@ -276,7 +276,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Voucher];
@@ -312,7 +312,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Customer];
@@ -352,7 +352,7 @@ export default class CustomersApi {
             'file': opts['file']
         };
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['multipart/form-data'];
         let accepts = ['application/json'];
         let returnType = InlineResponse200;
@@ -399,7 +399,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Customer;
@@ -447,7 +447,7 @@ export default class CustomersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Customer;

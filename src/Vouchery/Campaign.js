@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import CampaignCreatedBy from './CampaignCreatedBy';
 
 /**
  * The Campaign model module.
@@ -95,6 +96,18 @@ class Campaign {
             if (data.hasOwnProperty('max_discount')) {
                 obj['max_discount'] = ApiClient.convertToType(data['max_discount'], 'Number');
             }
+            if (data.hasOwnProperty('redemptions_count')) {
+                obj['redemptions_count'] = ApiClient.convertToType(data['redemptions_count'], 'Number');
+            }
+            if (data.hasOwnProperty('total_budget_spent')) {
+                obj['total_budget_spent'] = ApiClient.convertToType(data['total_budget_spent'], 'Number');
+            }
+            if (data.hasOwnProperty('vouchers_distributed_count')) {
+                obj['vouchers_distributed_count'] = ApiClient.convertToType(data['vouchers_distributed_count'], 'Number');
+            }
+            if (data.hasOwnProperty('vouchers_count')) {
+                obj['vouchers_count'] = ApiClient.convertToType(data['vouchers_count'], 'Number');
+            }
             if (data.hasOwnProperty('currency')) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
@@ -131,8 +144,14 @@ class Campaign {
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
+            if (data.hasOwnProperty('created_by')) {
+                obj['created_by'] = CampaignCreatedBy.constructFromObject(data['created_by']);
+            }
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            }
+            if (data.hasOwnProperty('updated_by')) {
+                obj['updated_by'] = CampaignCreatedBy.constructFromObject(data['updated_by']);
             }
         }
         return obj;
@@ -182,7 +201,7 @@ Campaign.prototype['triggers_on'] = undefined;
 Campaign.prototype['trigger_name'] = undefined;
 
 /**
- * Determines campaign business type & structure to setup
+ * Valid template values for MainCampaign are: discount, loyalty, gift_card. For SubCampaign valid templates are sub_redemption, sub_reward_points, sub_generate_vouchers.
  * @member {module:Vouchery/Campaign.TemplateEnum} template
  */
 Campaign.prototype['template'] = undefined;
@@ -219,6 +238,26 @@ Campaign.prototype['minimum_value'] = undefined;
  * @member {Number} max_discount
  */
 Campaign.prototype['max_discount'] = undefined;
+
+/**
+ * @member {Number} redemptions_count
+ */
+Campaign.prototype['redemptions_count'] = undefined;
+
+/**
+ * @member {Number} total_budget_spent
+ */
+Campaign.prototype['total_budget_spent'] = undefined;
+
+/**
+ * @member {Number} vouchers_distributed_count
+ */
+Campaign.prototype['vouchers_distributed_count'] = undefined;
+
+/**
+ * @member {Number} vouchers_count
+ */
+Campaign.prototype['vouchers_count'] = undefined;
 
 /**
  * Currency denominating monetary values in this campaign (USD, GBP, EUR, AUD)
@@ -287,9 +326,19 @@ Campaign.prototype['voucher_prefix'] = undefined;
 Campaign.prototype['created_at'] = undefined;
 
 /**
+ * @member {module:Vouchery/CampaignCreatedBy} created_by
+ */
+Campaign.prototype['created_by'] = undefined;
+
+/**
  * @member {Date} updated_at
  */
 Campaign.prototype['updated_at'] = undefined;
+
+/**
+ * @member {module:Vouchery/CampaignCreatedBy} updated_by
+ */
+Campaign.prototype['updated_by'] = undefined;
 
 
 

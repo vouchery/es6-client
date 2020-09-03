@@ -50,7 +50,7 @@ export default class CategoriesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Category;
@@ -94,7 +94,7 @@ export default class CategoriesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = [];
         let returnType = null;
@@ -130,7 +130,7 @@ export default class CategoriesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Category];
@@ -172,7 +172,7 @@ export default class CategoriesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Category;
@@ -218,7 +218,7 @@ export default class CategoriesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Category;

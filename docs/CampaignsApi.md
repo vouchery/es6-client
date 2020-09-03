@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**findSubCampaigns**](CampaignsApi.md#findSubCampaigns) | **GET** /campaigns/sub | Get sub campaigns by params
 [**getCampaign**](CampaignsApi.md#getCampaign) | **GET** /campaigns/{id} | Get a campaign
 [**getCampaigns**](CampaignsApi.md#getCampaigns) | **GET** /campaigns | Get main campaigns with children by params
+[**getMainCampaign**](CampaignsApi.md#getMainCampaign) | **GET** /main_campaigns/{id} | Get a main campaign
+[**getMainCampaigns**](CampaignsApi.md#getMainCampaigns) | **GET** /main_campaigns | Get main campaigns with children by params
 [**updateCampaign**](CampaignsApi.md#updateCampaign) | **PATCH** /campaigns/{id} | Update a campaign
 
 
@@ -24,14 +26,13 @@ Create a campaign
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let opts = {
-  'campaign': new VoucheryApi.Campaign() // Campaign | 
+  'UNKNOWN_BASE_TYPE': new VoucheryApi.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | 
 };
 apiInstance.createCampaign(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -46,7 +47,7 @@ apiInstance.createCampaign(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaign** | [**Campaign**](Campaign.md)|  | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
 
 ### Return type
 
@@ -54,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -73,10 +74,9 @@ Delete a campaign
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let id = 56; // Number | Campaign ID
@@ -101,7 +101,7 @@ null (empty response body)
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -120,10 +120,9 @@ Get sub campaigns by params
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let opts = {
@@ -158,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -177,10 +176,9 @@ Get a campaign
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let id = 56; // Number | Campaign ID
@@ -205,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -224,10 +222,9 @@ Get main campaigns with children by params
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let opts = {
@@ -260,7 +257,107 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getMainCampaign
+
+> MainCampaign getMainCampaign(id)
+
+Get a main campaign
+
+### Example
+
+```javascript
+import VoucheryApi from 'vouchery_api';
+let defaultClient = VoucheryApi.ApiClient.instance;
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new VoucheryApi.CampaignsApi();
+let id = 56; // Number | Campaign ID
+apiInstance.getMainCampaign(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| Campaign ID | 
+
+### Return type
+
+[**MainCampaign**](MainCampaign.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getMainCampaigns
+
+> [MainCampaign] getMainCampaigns(opts)
+
+Get main campaigns with children by params
+
+### Example
+
+```javascript
+import VoucheryApi from 'vouchery_api';
+let defaultClient = VoucheryApi.ApiClient.instance;
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new VoucheryApi.CampaignsApi();
+let opts = {
+  'nameCont': "nameCont_example", // String | Name contains
+  'teamEq': "teamEq_example", // String | Teaml
+  'statusEq': "statusEq_example", // String | Status
+  'templateEq': "templateEq_example" // String | Template (promotion type) of main campaign
+};
+apiInstance.getMainCampaigns(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **nameCont** | **String**| Name contains | [optional] 
+ **teamEq** | **String**| Teaml | [optional] 
+ **statusEq** | **String**| Status | [optional] 
+ **templateEq** | **String**| Template (promotion type) of main campaign | [optional] 
+
+### Return type
+
+[**[MainCampaign]**](MainCampaign.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -279,15 +376,14 @@ Update a campaign
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CampaignsApi();
 let id = 56; // Number | Campaign ID
 let opts = {
-  'campaign': new VoucheryApi.Campaign() // Campaign | 
+  'UNKNOWN_BASE_TYPE': new VoucheryApi.UNKNOWN_BASE_TYPE() // UNKNOWN_BASE_TYPE | 
 };
 apiInstance.updateCampaign(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -303,7 +399,7 @@ apiInstance.updateCampaign(id, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Campaign ID | 
- **campaign** | [**Campaign**](Campaign.md)|  | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
 
 ### Return type
 
@@ -311,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** |  | 
-**id** | **Number** |  | [optional] [readonly] 
 **campaignId** | **Number** |  | [optional] [readonly] 
 **active** | **Boolean** |  | [readonly] 
 **status** | **String** |  | [optional] 
@@ -37,6 +36,8 @@ Name | Type | Description | Notes
 * `redeemed` (value: `"redeemed"`)
 
 * `expired` (value: `"expired"`)
+
+* `active` (value: `"active"`)
 
 
 

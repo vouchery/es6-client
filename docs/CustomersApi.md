@@ -28,10 +28,9 @@ Assign vouchers to a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
@@ -60,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -79,10 +78,9 @@ Create a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let opts = {
@@ -109,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -128,10 +126,9 @@ Delete a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
@@ -156,7 +153,7 @@ null (empty response body)
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -175,10 +172,9 @@ Get a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
@@ -203,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -222,10 +218,9 @@ Get redemptions performed by a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
@@ -250,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -269,10 +264,9 @@ Get vouchers assigned to a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
@@ -297,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -316,10 +310,9 @@ Get all customers
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 apiInstance.getCustomers().then((data) => {
@@ -340,7 +333,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -359,10 +352,9 @@ Import your own customers
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let opts = {
@@ -389,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -408,10 +400,9 @@ Remove (unassign) vouchers from a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
@@ -440,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -459,10 +450,9 @@ Update a customer
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CustomersApi();
 let identifier = "identifier_example"; // String | Customer identifier
@@ -491,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

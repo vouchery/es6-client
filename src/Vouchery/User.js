@@ -66,7 +66,7 @@ class User {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
             if (data.hasOwnProperty('team')) {
-                obj['team'] = ApiClient.convertToType(data['team'], 'String');
+                obj['team'] = ApiClient.convertToType(data['team'], ['String']);
             }
             if (data.hasOwnProperty('role')) {
                 obj['role'] = ApiClient.convertToType(data['role'], 'String');
@@ -76,6 +76,12 @@ class User {
             }
             if (data.hasOwnProperty('active')) {
                 obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
+            }
+            if (data.hasOwnProperty('masked_api_key')) {
+                obj['masked_api_key'] = ApiClient.convertToType(data['masked_api_key'], 'String');
+            }
+            if (data.hasOwnProperty('last_sign_in_at')) {
+                obj['last_sign_in_at'] = ApiClient.convertToType(data['last_sign_in_at'], 'Date');
             }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
@@ -111,7 +117,7 @@ User.prototype['name'] = undefined;
 User.prototype['email'] = undefined;
 
 /**
- * @member {String} team
+ * @member {Array.<String>} team
  */
 User.prototype['team'] = undefined;
 
@@ -129,6 +135,16 @@ User.prototype['access_scope'] = undefined;
  * @member {Boolean} active
  */
 User.prototype['active'] = undefined;
+
+/**
+ * @member {String} masked_api_key
+ */
+User.prototype['masked_api_key'] = undefined;
+
+/**
+ * @member {Date} last_sign_in_at
+ */
+User.prototype['last_sign_in_at'] = undefined;
 
 /**
  * @member {Date} created_at

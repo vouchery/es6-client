@@ -130,6 +130,18 @@ Error['CodeEnum'] = {
     "can_not_be_deleted": "can_not_be_deleted",
 
     /**
+     * value: "unknown_attribute"
+     * @const
+     */
+    "unknown_attribute": "unknown_attribute",
+
+    /**
+     * value: "invalid_type"
+     * @const
+     */
+    "invalid_type": "invalid_type",
+
+    /**
      * value: "unknown_error"
      * @const
      */

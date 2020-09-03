@@ -39,12 +39,12 @@ export default class RewardsApi {
      * Create a reward
      * @param {Number} campaignId Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Reward} opts.reward 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Reward} and HTTP response
      */
     createRewardWithHttpInfo(campaignId, opts) {
         opts = opts || {};
-        let postBody = opts['reward'];
+        let postBody = opts['UNKNOWN_BASE_TYPE'];
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
             throw new Error("Missing the required parameter 'campaignId' when calling createReward");
@@ -57,7 +57,7 @@ export default class RewardsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Reward;
@@ -72,7 +72,7 @@ export default class RewardsApi {
      * Create a reward
      * @param {Number} campaignId Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Reward} opts.reward 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Reward}
      */
     createReward(campaignId, opts) {
@@ -102,7 +102,7 @@ export default class RewardsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = [];
         let returnType = null;
@@ -145,7 +145,7 @@ export default class RewardsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Reward;
@@ -188,7 +188,7 @@ export default class RewardsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Reward];
@@ -216,12 +216,12 @@ export default class RewardsApi {
      * Update a reward
      * @param {Number} id Reward ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Reward} opts.reward 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Reward} and HTTP response
      */
     updateRewardWithHttpInfo(id, opts) {
         opts = opts || {};
-        let postBody = opts['reward'];
+        let postBody = opts['UNKNOWN_BASE_TYPE'];
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
             throw new Error("Missing the required parameter 'id' when calling updateReward");
@@ -234,7 +234,7 @@ export default class RewardsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Reward;
@@ -249,7 +249,7 @@ export default class RewardsApi {
      * Update a reward
      * @param {Number} id Reward ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Reward} opts.reward 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Reward}
      */
     updateReward(id, opts) {

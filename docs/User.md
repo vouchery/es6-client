@@ -8,10 +8,12 @@ Name | Type | Description | Notes
 **id** | **Number** |  | [optional] [readonly] 
 **name** | **String** |  | [optional] 
 **email** | **String** |  | 
-**team** | **String** |  | [optional] 
+**team** | **[String]** |  | [optional] 
 **role** | **String** |  | 
 **accessScope** | **String** |  | 
 **active** | **Boolean** |  | [optional] [readonly] 
+**maskedApiKey** | **String** |  | [optional] [readonly] 
+**lastSignInAt** | **Date** |  | [optional] [readonly] 
 **createdAt** | **Date** |  | [optional] [readonly] 
 **updatedAt** | **Date** |  | [optional] [readonly] 
 

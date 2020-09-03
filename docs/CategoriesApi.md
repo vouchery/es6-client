@@ -23,10 +23,9 @@ Create a category
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CategoriesApi();
 let opts = {
@@ -53,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -72,10 +71,9 @@ Delete a category
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CategoriesApi();
 let id = 56; // Number | Category ID
@@ -100,7 +98,7 @@ null (empty response body)
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -119,10 +117,9 @@ Get all categories for a campaign
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CategoriesApi();
 apiInstance.getCategories().then((data) => {
@@ -143,7 +140,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -162,10 +159,9 @@ Get a category
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CategoriesApi();
 let id = 56; // Number | Category ID
@@ -190,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -209,10 +205,9 @@ Update a category
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.CategoriesApi();
 let id = 56; // Number | Category ID
@@ -241,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

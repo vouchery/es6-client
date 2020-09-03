@@ -102,14 +102,13 @@ Please follow the [installation](#installation) instruction and execute the foll
 var VoucheryApi = require('vouchery_api');
 
 var defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-var Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME'
-Basic.password = 'YOUR PASSWORD'
+// Configure Bearer access token for authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new VoucheryApi.CampaignsApi()
 var opts = {
-  'campaign': new VoucheryApi.Campaign() // {Campaign} 
+  'UNKNOWN_BASE_TYPE': new VoucheryApi.UNKNOWN_BASE_TYPE() // {UNKNOWN_BASE_TYPE} 
 };
 api.createCampaign(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -131,12 +130,15 @@ Class | Method | HTTP request | Description
 *VoucheryApi.CampaignsApi* | [**findSubCampaigns**](docs/CampaignsApi.md#findSubCampaigns) | **GET** /campaigns/sub | Get sub campaigns by params
 *VoucheryApi.CampaignsApi* | [**getCampaign**](docs/CampaignsApi.md#getCampaign) | **GET** /campaigns/{id} | Get a campaign
 *VoucheryApi.CampaignsApi* | [**getCampaigns**](docs/CampaignsApi.md#getCampaigns) | **GET** /campaigns | Get main campaigns with children by params
+*VoucheryApi.CampaignsApi* | [**getMainCampaign**](docs/CampaignsApi.md#getMainCampaign) | **GET** /main_campaigns/{id} | Get a main campaign
+*VoucheryApi.CampaignsApi* | [**getMainCampaigns**](docs/CampaignsApi.md#getMainCampaigns) | **GET** /main_campaigns | Get main campaigns with children by params
 *VoucheryApi.CampaignsApi* | [**updateCampaign**](docs/CampaignsApi.md#updateCampaign) | **PATCH** /campaigns/{id} | Update a campaign
 *VoucheryApi.CategoriesApi* | [**createCategory**](docs/CategoriesApi.md#createCategory) | **POST** /categories | Create a category
 *VoucheryApi.CategoriesApi* | [**deleteCategory**](docs/CategoriesApi.md#deleteCategory) | **DELETE** /categories/{id} | Delete a category
 *VoucheryApi.CategoriesApi* | [**getCategories**](docs/CategoriesApi.md#getCategories) | **GET** /categories | Get all categories for a campaign
 *VoucheryApi.CategoriesApi* | [**getCategory**](docs/CategoriesApi.md#getCategory) | **GET** /categories/{id} | Get a category
 *VoucheryApi.CategoriesApi* | [**updateCategory**](docs/CategoriesApi.md#updateCategory) | **PATCH** /categories/{id} | Update a category
+*VoucheryApi.CompanyApi* | [**updateCompany**](docs/CompanyApi.md#updateCompany) | **PATCH** /company | Update company details
 *VoucheryApi.CustomersApi* | [**assignVouchersToCustomer**](docs/CustomersApi.md#assignVouchersToCustomer) | **PATCH** /customers/{identifier}/vouchers | Assign vouchers to a customer
 *VoucheryApi.CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createCustomer) | **POST** /customers | Create a customer
 *VoucheryApi.CustomersApi* | [**deleteCustomer**](docs/CustomersApi.md#deleteCustomer) | **DELETE** /customers/{identifier} | Delete a customer
@@ -147,6 +149,7 @@ Class | Method | HTTP request | Description
 *VoucheryApi.CustomersApi* | [**importCustomers**](docs/CustomersApi.md#importCustomers) | **POST** /customers/import | Import your own customers
 *VoucheryApi.CustomersApi* | [**removeVouchersFromCustomer**](docs/CustomersApi.md#removeVouchersFromCustomer) | **DELETE** /customers/{identifier}/vouchers | Remove (unassign) vouchers from a customer
 *VoucheryApi.CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updateCustomer) | **PATCH** /customers/{identifier} | Update a customer
+*VoucheryApi.ProjectsApi* | [**updateProject**](docs/ProjectsApi.md#updateProject) | **PATCH** /project | Update project settings
 *VoucheryApi.RedemptionsApi* | [**confirmRedemption**](docs/RedemptionsApi.md#confirmRedemption) | **PATCH** /vouchers/{code}/redemptions | Confirm a redemption
 *VoucheryApi.RedemptionsApi* | [**createRedemption**](docs/RedemptionsApi.md#createRedemption) | **POST** /vouchers/{code}/redemptions | Create a redemption
 *VoucheryApi.RedemptionsApi* | [**deleteRedemption**](docs/RedemptionsApi.md#deleteRedemption) | **DELETE** /vouchers/{code}/redemptions | Delete a redemption
@@ -162,24 +165,34 @@ Class | Method | HTTP request | Description
 *VoucheryApi.RulesApi* | [**getRule**](docs/RulesApi.md#getRule) | **GET** /rules/{id} | Get a rule
 *VoucheryApi.RulesApi* | [**getRules**](docs/RulesApi.md#getRules) | **GET** /campaigns/{campaign_id}/rules | Get all rules for a campaign
 *VoucheryApi.RulesApi* | [**updateRule**](docs/RulesApi.md#updateRule) | **PATCH** /rules/{id} | Update a rule
+*VoucheryApi.SubscriptionsApi* | [**createSubscription**](docs/SubscriptionsApi.md#createSubscription) | **POST** /subscriptions | Create a subscription
+*VoucheryApi.SubscriptionsApi* | [**deleteSubscription**](docs/SubscriptionsApi.md#deleteSubscription) | **DELETE** /subscriptions/{id} | Delete a subscription
+*VoucheryApi.SubscriptionsApi* | [**getSubscriptions**](docs/SubscriptionsApi.md#getSubscriptions) | **GET** /subscriptions | Get all subscriptions for a project
+*VoucheryApi.SubscriptionsApi* | [**verifySubscription**](docs/SubscriptionsApi.md#verifySubscription) | **GET** /subscriptions/{id}/verify | Verify subscription callback URL
 *VoucheryApi.TriggersApi* | [**createTrigger**](docs/TriggersApi.md#createTrigger) | **POST** /triggers | Create a trigger
+*VoucheryApi.UsersApi* | [**getMe**](docs/UsersApi.md#getMe) | **GET** /me | Get information about current user and project
+*VoucheryApi.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /users/{email} | Get a user
 *VoucheryApi.UsersApi* | [**getUsers**](docs/UsersApi.md#getUsers) | **GET** /users | Get all users within a project
+*VoucheryApi.UsersApi* | [**postUsers**](docs/UsersApi.md#postUsers) | **POST** /users | Create project user
+*VoucheryApi.UsersApi* | [**updateUser**](docs/UsersApi.md#updateUser) | **PATCH** /users/{email} | Update a user
 *VoucheryApi.VouchersApi* | [**batchGenerateVouchers**](docs/VouchersApi.md#batchGenerateVouchers) | **POST** /campaigns/{id}/vouchers/batch | Batch create vouchers
 *VoucheryApi.VouchersApi* | [**createVoucher**](docs/VouchersApi.md#createVoucher) | **POST** /campaigns/{campaign_id}/vouchers | Create a voucher
 *VoucheryApi.VouchersApi* | [**deleteVoucher**](docs/VouchersApi.md#deleteVoucher) | **DELETE** /vouchers/{code} | Delete a voucher
+*VoucheryApi.VouchersApi* | [**expireVoucher**](docs/VouchersApi.md#expireVoucher) | **PATCH** /vouchers/{code}/expire | Expire a voucher
 *VoucheryApi.VouchersApi* | [**expireVouchers**](docs/VouchersApi.md#expireVouchers) | **POST** /campaigns/vouchers/expire | Expire a list of vouchers
 *VoucheryApi.VouchersApi* | [**findVoucher**](docs/VouchersApi.md#findVoucher) | **GET** /vouchers/find | Find a voucher by campaign metadata
 *VoucheryApi.VouchersApi* | [**getVoucher**](docs/VouchersApi.md#getVoucher) | **GET** /vouchers/{code} | Get a voucher
 *VoucheryApi.VouchersApi* | [**getVouchers**](docs/VouchersApi.md#getVouchers) | **GET** /campaigns/{campaign_id}/vouchers | Get all vouchers for a campaign
 *VoucheryApi.VouchersApi* | [**importVouchers**](docs/VouchersApi.md#importVouchers) | **POST** /campaigns/{id}/vouchers/import | Import your own vouchers
-*VoucheryApi.VouchersApi* | [**updateVoucher**](docs/VouchersApi.md#updateVoucher) | **PATCH** /vouchers/{code} | Update a voucher
 
 
 ## Documentation for Models
 
  - [VoucheryApi.Batch](docs/Batch.md)
  - [VoucheryApi.Campaign](docs/Campaign.md)
+ - [VoucheryApi.CampaignCreatedBy](docs/CampaignCreatedBy.md)
  - [VoucheryApi.Category](docs/Category.md)
+ - [VoucheryApi.Company](docs/Company.md)
  - [VoucheryApi.Customer](docs/Customer.md)
  - [VoucheryApi.CustomerCategories](docs/CustomerCategories.md)
  - [VoucheryApi.Error](docs/Error.md)
@@ -190,6 +203,9 @@ Class | Method | HTTP request | Description
  - [VoucheryApi.InlineObject3](docs/InlineObject3.md)
  - [VoucheryApi.InlineObject4](docs/InlineObject4.md)
  - [VoucheryApi.InlineResponse200](docs/InlineResponse200.md)
+ - [VoucheryApi.InlineResponse2001](docs/InlineResponse2001.md)
+ - [VoucheryApi.MainCampaign](docs/MainCampaign.md)
+ - [VoucheryApi.Project](docs/Project.md)
  - [VoucheryApi.Redemption](docs/Redemption.md)
  - [VoucheryApi.RedemptionProductItems](docs/RedemptionProductItems.md)
  - [VoucheryApi.RedemptionVoucher](docs/RedemptionVoucher.md)
@@ -200,15 +216,23 @@ Class | Method | HTTP request | Description
  - [VoucheryApi.RewardGenerateVoucher](docs/RewardGenerateVoucher.md)
  - [VoucheryApi.RewardSetDiscount](docs/RewardSetDiscount.md)
  - [VoucheryApi.RewardSetDiscountPerItem](docs/RewardSetDiscountPerItem.md)
+ - [VoucheryApi.RewardSetDiscountPerItemItemConditions](docs/RewardSetDiscountPerItemItemConditions.md)
  - [VoucheryApi.Rule](docs/Rule.md)
+ - [VoucheryApi.RuleAdditionalCategory](docs/RuleAdditionalCategory.md)
  - [VoucheryApi.RuleCustomerCategory](docs/RuleCustomerCategory.md)
  - [VoucheryApi.RuleCustomerMaxRedemptions](docs/RuleCustomerMaxRedemptions.md)
  - [VoucheryApi.RuleCustomerPoints](docs/RuleCustomerPoints.md)
+ - [VoucheryApi.RuleProductCategory](docs/RuleProductCategory.md)
  - [VoucheryApi.RuleProductItemExists](docs/RuleProductItemExists.md)
  - [VoucheryApi.RuleProductItemExistsItemConditions](docs/RuleProductItemExistsItemConditions.md)
  - [VoucheryApi.RuleTimeOfOrder](docs/RuleTimeOfOrder.md)
  - [VoucheryApi.RuleTimeframe](docs/RuleTimeframe.md)
+ - [VoucheryApi.RuleTimeframeOneOf](docs/RuleTimeframeOneOf.md)
+ - [VoucheryApi.RuleTimeframeOneOf1](docs/RuleTimeframeOneOf1.md)
+ - [VoucheryApi.RuleTimeframeOneOf2](docs/RuleTimeframeOneOf2.md)
  - [VoucheryApi.RuleTriggersAmount](docs/RuleTriggersAmount.md)
+ - [VoucheryApi.SubCampaign](docs/SubCampaign.md)
+ - [VoucheryApi.Subscription](docs/Subscription.md)
  - [VoucheryApi.Trigger](docs/Trigger.md)
  - [VoucheryApi.User](docs/User.md)
  - [VoucheryApi.Voucher](docs/Voucher.md)
@@ -218,7 +242,7 @@ Class | Method | HTTP request | Description
 
 
 
-### Basic
+### Bearer
 
-- **Type**: HTTP basic authentication
+- **Type**: Bearer authentication
 

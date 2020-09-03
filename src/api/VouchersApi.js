@@ -61,7 +61,7 @@ export default class VouchersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = [Voucher];
@@ -110,7 +110,7 @@ export default class VouchersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Voucher;
@@ -156,7 +156,7 @@ export default class VouchersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = [];
         let returnType = null;
@@ -182,6 +182,51 @@ export default class VouchersApi {
 
 
     /**
+     * Expire a voucher
+     * Expire a voucher
+     * @param {String} code Voucher code
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Voucher} and HTTP response
+     */
+    expireVoucherWithHttpInfo(code) {
+        let postBody = null;
+        // verify the required parameter 'code' is set
+        if (code === undefined || code === null) {
+            throw new Error("Missing the required parameter 'code' when calling expireVoucher");
+        }
+
+        let pathParams = {
+            'code': code
+        };
+        let queryParams = {};
+        let headerParams = {};
+        let formParams = {};
+
+        let authNames = ['Bearer'];
+        let contentTypes = [];
+        let accepts = ['application/json'];
+        let returnType = Voucher;
+        return this.apiClient.callApi(
+            '/vouchers/{code}/expire', 'PATCH',
+            pathParams, queryParams, headerParams, formParams, postBody,
+            authNames, contentTypes, accepts, returnType, null
+        );
+    }
+
+    /**
+     * Expire a voucher
+     * Expire a voucher
+     * @param {String} code Voucher code
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Voucher}
+     */
+    expireVoucher(code) {
+        return this.expireVoucherWithHttpInfo(code)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
+
+    /**
      * Expire a list of vouchers
      * Given a list of voucher codes, change their status to expired, unless they have been redeemed.
      * @param {Object} opts Optional parameters
@@ -197,7 +242,7 @@ export default class VouchersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = [];
         let returnType = null;
@@ -249,7 +294,7 @@ export default class VouchersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Voucher;
@@ -298,7 +343,7 @@ export default class VouchersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Voucher;
@@ -325,9 +370,15 @@ export default class VouchersApi {
     /**
      * Get all vouchers for a campaign
      * @param {Number} campaignId Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.active vouchers activity flag (true/false)
+     * @param {Number} opts.perPage pagination - vouchers per page
+     * @param {Number} opts.page pagination - current page (starts from 1)
+     * @param {String} opts.status vouchers status (created/distributed/validated/redeemed/expired)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/Voucher>} and HTTP response
      */
-    getVouchersWithHttpInfo(campaignId) {
+    getVouchersWithHttpInfo(campaignId, opts) {
+        opts = opts || {};
         let postBody = null;
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
@@ -337,11 +388,16 @@ export default class VouchersApi {
         let pathParams = {
             'campaign_id': campaignId
         };
-        let queryParams = {};
+        let queryParams = {
+            'active': opts['active'],
+            'per_page': opts['perPage'],
+            'page': opts['page'],
+            'status': opts['status']
+        };
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Voucher];
@@ -355,10 +411,15 @@ export default class VouchersApi {
     /**
      * Get all vouchers for a campaign
      * @param {Number} campaignId Campaign ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.active vouchers activity flag (true/false)
+     * @param {Number} opts.perPage pagination - vouchers per page
+     * @param {Number} opts.page pagination - current page (starts from 1)
+     * @param {String} opts.status vouchers status (created/distributed/validated/redeemed/expired)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/Voucher>}
      */
-    getVouchers(campaignId) {
-        return this.getVouchersWithHttpInfo(campaignId)
+    getVouchers(campaignId, opts) {
+        return this.getVouchersWithHttpInfo(campaignId, opts)
             .then(function(response_and_data) {
                 return response_and_data.data;
             });
@@ -389,7 +450,7 @@ export default class VouchersApi {
             'file': opts['file']
         };
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['multipart/form-data'];
         let accepts = ['application/json'];
         let returnType = InlineResponse200;
@@ -409,56 +470,6 @@ export default class VouchersApi {
      */
     importVouchers(id, opts) {
         return this.importVouchersWithHttpInfo(id, opts)
-            .then(function(response_and_data) {
-                return response_and_data.data;
-            });
-    }
-
-
-    /**
-     * Update a voucher
-     * Only voucher status can be updated.
-     * @param {String} code Voucher code
-     * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Voucher} opts.voucher 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Voucher} and HTTP response
-     */
-    updateVoucherWithHttpInfo(code, opts) {
-        opts = opts || {};
-        let postBody = opts['voucher'];
-        // verify the required parameter 'code' is set
-        if (code === undefined || code === null) {
-            throw new Error("Missing the required parameter 'code' when calling updateVoucher");
-        }
-
-        let pathParams = {
-            'code': code
-        };
-        let queryParams = {};
-        let headerParams = {};
-        let formParams = {};
-
-        let authNames = ['Basic'];
-        let contentTypes = ['application/json'];
-        let accepts = ['application/json'];
-        let returnType = Voucher;
-        return this.apiClient.callApi(
-            '/vouchers/{code}', 'PATCH',
-            pathParams, queryParams, headerParams, formParams, postBody,
-            authNames, contentTypes, accepts, returnType, null
-        );
-    }
-
-    /**
-     * Update a voucher
-     * Only voucher status can be updated.
-     * @param {String} code Voucher code
-     * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Voucher} opts.voucher 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Voucher}
-     */
-    updateVoucher(code, opts) {
-        return this.updateVoucherWithHttpInfo(code, opts)
             .then(function(response_and_data) {
                 return response_and_data.data;
             });

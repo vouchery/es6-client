@@ -11,13 +11,17 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the campaign must be unique. | 
 **triggersOn** | **String** | What type of trigger sub campaign is reacting on to check rules and give rewards. | [optional] 
 **triggerName** | **String** | If campaign is triggered by custom trigger, it&#39;s name should be specified. | [optional] 
-**template** | **String** | Determines campaign business type &amp; structure to setup | [optional] 
+**template** | **String** | Valid template values for MainCampaign are: discount, loyalty, gift_card. For SubCampaign valid templates are sub_redemption, sub_reward_points, sub_generate_vouchers. | [optional] 
 **description** | **String** |  | [optional] 
 **customerInformation** | **String** | Text that can be displayed to the customer once the redemption is validated or confirmed. | [optional] 
 **maxTotalBudget** | **Number** | The budget available for all discount campaigns grouped by this campaign. | [optional] 
 **maxRedemptions** | **Number** | The maximum number of redemptions available across all discount campaigns grouped by this campaign. | [optional] 
 **minimumValue** | **Number** |  | [optional] 
 **maxDiscount** | **Number** |  | [optional] 
+**redemptionsCount** | **Number** |  | [optional] [readonly] 
+**totalBudgetSpent** | **Number** |  | [optional] [readonly] 
+**vouchersDistributedCount** | **Number** |  | [optional] [readonly] 
+**vouchersCount** | **Number** |  | [optional] [readonly] 
 **currency** | **String** | Currency denominating monetary values in this campaign (USD, GBP, EUR, AUD) | [optional] [readonly] 
 **currencySymbol** | **String** | Currency symbol ($, £, €) | [optional] [readonly] 
 **team** | **String** |  | [optional] 
@@ -30,7 +34,9 @@ Name | Type | Description | Notes
 **voucherRandomPartLength** | **Number** | How long should the random part of the code be? Valid values are between 2 and 10, depending on batch size. | [optional] 
 **voucherPrefix** | **String** | A prefix that will be used to generate vouchers. Needs to be unique within project. | [optional] 
 **createdAt** | **Date** |  | [optional] [readonly] 
+**createdBy** | [**CampaignCreatedBy**](CampaignCreatedBy.md) |  | [optional] 
 **updatedAt** | **Date** |  | [optional] [readonly] 
+**updatedBy** | [**CampaignCreatedBy**](CampaignCreatedBy.md) |  | [optional] 
 
 
 

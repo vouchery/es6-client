@@ -19,10 +19,9 @@ Create a trigger
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.TriggersApi();
 let opts = {
@@ -49,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

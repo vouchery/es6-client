@@ -61,7 +61,7 @@ export default class RedemptionsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Redemption;
@@ -108,7 +108,7 @@ export default class RedemptionsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Redemption;
@@ -160,7 +160,7 @@ export default class RedemptionsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = [];
         let returnType = null;
@@ -211,7 +211,7 @@ export default class RedemptionsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Redemption;
@@ -255,7 +255,7 @@ export default class RedemptionsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Redemption];

@@ -7,12 +7,12 @@ Method | HTTP request | Description
 [**batchGenerateVouchers**](VouchersApi.md#batchGenerateVouchers) | **POST** /campaigns/{id}/vouchers/batch | Batch create vouchers
 [**createVoucher**](VouchersApi.md#createVoucher) | **POST** /campaigns/{campaign_id}/vouchers | Create a voucher
 [**deleteVoucher**](VouchersApi.md#deleteVoucher) | **DELETE** /vouchers/{code} | Delete a voucher
+[**expireVoucher**](VouchersApi.md#expireVoucher) | **PATCH** /vouchers/{code}/expire | Expire a voucher
 [**expireVouchers**](VouchersApi.md#expireVouchers) | **POST** /campaigns/vouchers/expire | Expire a list of vouchers
 [**findVoucher**](VouchersApi.md#findVoucher) | **GET** /vouchers/find | Find a voucher by campaign metadata
 [**getVoucher**](VouchersApi.md#getVoucher) | **GET** /vouchers/{code} | Get a voucher
 [**getVouchers**](VouchersApi.md#getVouchers) | **GET** /campaigns/{campaign_id}/vouchers | Get all vouchers for a campaign
 [**importVouchers**](VouchersApi.md#importVouchers) | **POST** /campaigns/{id}/vouchers/import | Import your own vouchers
-[**updateVoucher**](VouchersApi.md#updateVoucher) | **PATCH** /vouchers/{code} | Update a voucher
 
 
 
@@ -29,10 +29,9 @@ Batch create vouchers
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let id = 56; // Number | Campaign ID
@@ -61,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -80,10 +79,9 @@ Create a voucher
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let campaignId = 56; // Number | Campaign ID
@@ -112,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -133,10 +131,9 @@ Delete a single voucher. Vouchers with at least one confirmed redemption can not
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let code = "code_example"; // String | Voucher code
@@ -161,12 +158,60 @@ null (empty response body)
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## expireVoucher
+
+> Voucher expireVoucher(code)
+
+Expire a voucher
+
+Expire a voucher
+
+### Example
+
+```javascript
+import VoucheryApi from 'vouchery_api';
+let defaultClient = VoucheryApi.ApiClient.instance;
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new VoucheryApi.VouchersApi();
+let code = "code_example"; // String | Voucher code
+apiInstance.expireVoucher(code).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **String**| Voucher code | 
+
+### Return type
+
+[**Voucher**](Voucher.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## expireVouchers
@@ -182,10 +227,9 @@ Given a list of voucher codes, change their status to expired, unless they have 
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let opts = {
@@ -212,7 +256,7 @@ null (empty response body)
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -233,10 +277,9 @@ Find a voucher by campaign metadata
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let opts = {
@@ -271,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -290,10 +333,9 @@ Get a voucher
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let code = "code_example"; // String | Voucher code
@@ -318,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -328,7 +370,7 @@ Name | Type | Description  | Notes
 
 ## getVouchers
 
-> [Voucher] getVouchers(campaignId)
+> [Voucher] getVouchers(campaignId, opts)
 
 Get all vouchers for a campaign
 
@@ -337,14 +379,19 @@ Get all vouchers for a campaign
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let campaignId = 56; // Number | Campaign ID
-apiInstance.getVouchers(campaignId).then((data) => {
+let opts = {
+  'active': "active_example", // String | vouchers activity flag (true/false)
+  'perPage': 3.4, // Number | pagination - vouchers per page
+  'page': 3.4, // Number | pagination - current page (starts from 1)
+  'status': "status_example" // String | vouchers status (created/distributed/validated/redeemed/expired)
+};
+apiInstance.getVouchers(campaignId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -358,6 +405,10 @@ apiInstance.getVouchers(campaignId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignId** | **Number**| Campaign ID | 
+ **active** | **String**| vouchers activity flag (true/false) | [optional] 
+ **perPage** | **Number**| pagination - vouchers per page | [optional] 
+ **page** | **Number**| pagination - current page (starts from 1) | [optional] 
+ **status** | **String**| vouchers status (created/distributed/validated/redeemed/expired) | [optional] 
 
 ### Return type
 
@@ -365,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -384,10 +435,9 @@ Import your own vouchers
 ```javascript
 import VoucheryApi from 'vouchery_api';
 let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
+// Configure Bearer access token for authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new VoucheryApi.VouchersApi();
 let id = 56; // Number | Campaign ID
@@ -416,63 +466,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: application/json
-
-
-## updateVoucher
-
-> Voucher updateVoucher(code, opts)
-
-Update a voucher
-
-Only voucher status can be updated.
-
-### Example
-
-```javascript
-import VoucheryApi from 'vouchery_api';
-let defaultClient = VoucheryApi.ApiClient.instance;
-// Configure HTTP basic authorization: Basic
-let Basic = defaultClient.authentications['Basic'];
-Basic.username = 'YOUR USERNAME';
-Basic.password = 'YOUR PASSWORD';
-
-let apiInstance = new VoucheryApi.VouchersApi();
-let code = "code_example"; // String | Voucher code
-let opts = {
-  'voucher': new VoucheryApi.Voucher() // Voucher | 
-};
-apiInstance.updateVoucher(code, opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **code** | **String**| Voucher code | 
- **voucher** | [**Voucher**](Voucher.md)|  | [optional] 
-
-### Return type
-
-[**Voucher**](Voucher.md)
-
-### Authorization
-
-[Basic](../README.md#Basic)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 

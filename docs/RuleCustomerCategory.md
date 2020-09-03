@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** |  | 
+**categoryType** | **String** |  | 
 **category** | **String** | Name of category, rule will be related to. | [optional] 
 **matchingType** | **String** | any_of means that customer should have tags in mentioned category. none_of - customer shouldn&#39;t have tags. | 
 **tags** | **[String]** |  | 
@@ -15,6 +16,15 @@ Name | Type | Description | Notes
 
 
 * `CustomerCategory` (value: `"CustomerCategory"`)
+
+
+
+
+
+## Enum: CategoryTypeEnum
+
+
+* `customer` (value: `"customer"`)
 
 
 

@@ -15,7 +15,9 @@
 import ApiClient from './ApiClient';
 import Batch from './Vouchery/Batch';
 import Campaign from './Vouchery/Campaign';
+import CampaignCreatedBy from './Vouchery/CampaignCreatedBy';
 import Category from './Vouchery/Category';
+import Company from './Vouchery/Company';
 import Customer from './Vouchery/Customer';
 import CustomerCategories from './Vouchery/CustomerCategories';
 import Error from './Vouchery/Error';
@@ -26,6 +28,9 @@ import InlineObject2 from './Vouchery/InlineObject2';
 import InlineObject3 from './Vouchery/InlineObject3';
 import InlineObject4 from './Vouchery/InlineObject4';
 import InlineResponse200 from './Vouchery/InlineResponse200';
+import InlineResponse2001 from './Vouchery/InlineResponse2001';
+import MainCampaign from './Vouchery/MainCampaign';
+import Project from './Vouchery/Project';
 import Redemption from './Vouchery/Redemption';
 import RedemptionProductItems from './Vouchery/RedemptionProductItems';
 import RedemptionVoucher from './Vouchery/RedemptionVoucher';
@@ -36,24 +41,35 @@ import RewardGenerateProductItem from './Vouchery/RewardGenerateProductItem';
 import RewardGenerateVoucher from './Vouchery/RewardGenerateVoucher';
 import RewardSetDiscount from './Vouchery/RewardSetDiscount';
 import RewardSetDiscountPerItem from './Vouchery/RewardSetDiscountPerItem';
+import RewardSetDiscountPerItemItemConditions from './Vouchery/RewardSetDiscountPerItemItemConditions';
 import Rule from './Vouchery/Rule';
+import RuleAdditionalCategory from './Vouchery/RuleAdditionalCategory';
 import RuleCustomerCategory from './Vouchery/RuleCustomerCategory';
 import RuleCustomerMaxRedemptions from './Vouchery/RuleCustomerMaxRedemptions';
 import RuleCustomerPoints from './Vouchery/RuleCustomerPoints';
+import RuleProductCategory from './Vouchery/RuleProductCategory';
 import RuleProductItemExists from './Vouchery/RuleProductItemExists';
 import RuleProductItemExistsItemConditions from './Vouchery/RuleProductItemExistsItemConditions';
 import RuleTimeOfOrder from './Vouchery/RuleTimeOfOrder';
 import RuleTimeframe from './Vouchery/RuleTimeframe';
+import RuleTimeframeOneOf from './Vouchery/RuleTimeframeOneOf';
+import RuleTimeframeOneOf1 from './Vouchery/RuleTimeframeOneOf1';
+import RuleTimeframeOneOf2 from './Vouchery/RuleTimeframeOneOf2';
 import RuleTriggersAmount from './Vouchery/RuleTriggersAmount';
+import SubCampaign from './Vouchery/SubCampaign';
+import Subscription from './Vouchery/Subscription';
 import Trigger from './Vouchery/Trigger';
 import User from './Vouchery/User';
 import Voucher from './Vouchery/Voucher';
 import CampaignsApi from './api/CampaignsApi';
 import CategoriesApi from './api/CategoriesApi';
+import CompanyApi from './api/CompanyApi';
 import CustomersApi from './api/CustomersApi';
+import ProjectsApi from './api/ProjectsApi';
 import RedemptionsApi from './api/RedemptionsApi';
 import RewardsApi from './api/RewardsApi';
 import RulesApi from './api/RulesApi';
+import SubscriptionsApi from './api/SubscriptionsApi';
 import TriggersApi from './api/TriggersApi';
 import UsersApi from './api/UsersApi';
 import VouchersApi from './api/VouchersApi';
@@ -110,10 +126,22 @@ export {
     Campaign,
 
     /**
+     * The CampaignCreatedBy model constructor.
+     * @property {module:Vouchery/CampaignCreatedBy}
+     */
+    CampaignCreatedBy,
+
+    /**
      * The Category model constructor.
      * @property {module:Vouchery/Category}
      */
     Category,
+
+    /**
+     * The Company model constructor.
+     * @property {module:Vouchery/Company}
+     */
+    Company,
 
     /**
      * The Customer model constructor.
@@ -176,6 +204,24 @@ export {
     InlineResponse200,
 
     /**
+     * The InlineResponse2001 model constructor.
+     * @property {module:Vouchery/InlineResponse2001}
+     */
+    InlineResponse2001,
+
+    /**
+     * The MainCampaign model constructor.
+     * @property {module:Vouchery/MainCampaign}
+     */
+    MainCampaign,
+
+    /**
+     * The Project model constructor.
+     * @property {module:Vouchery/Project}
+     */
+    Project,
+
+    /**
      * The Redemption model constructor.
      * @property {module:Vouchery/Redemption}
      */
@@ -236,10 +282,22 @@ export {
     RewardSetDiscountPerItem,
 
     /**
+     * The RewardSetDiscountPerItemItemConditions model constructor.
+     * @property {module:Vouchery/RewardSetDiscountPerItemItemConditions}
+     */
+    RewardSetDiscountPerItemItemConditions,
+
+    /**
      * The Rule model constructor.
      * @property {module:Vouchery/Rule}
      */
     Rule,
+
+    /**
+     * The RuleAdditionalCategory model constructor.
+     * @property {module:Vouchery/RuleAdditionalCategory}
+     */
+    RuleAdditionalCategory,
 
     /**
      * The RuleCustomerCategory model constructor.
@@ -258,6 +316,12 @@ export {
      * @property {module:Vouchery/RuleCustomerPoints}
      */
     RuleCustomerPoints,
+
+    /**
+     * The RuleProductCategory model constructor.
+     * @property {module:Vouchery/RuleProductCategory}
+     */
+    RuleProductCategory,
 
     /**
      * The RuleProductItemExists model constructor.
@@ -284,10 +348,40 @@ export {
     RuleTimeframe,
 
     /**
+     * The RuleTimeframeOneOf model constructor.
+     * @property {module:Vouchery/RuleTimeframeOneOf}
+     */
+    RuleTimeframeOneOf,
+
+    /**
+     * The RuleTimeframeOneOf1 model constructor.
+     * @property {module:Vouchery/RuleTimeframeOneOf1}
+     */
+    RuleTimeframeOneOf1,
+
+    /**
+     * The RuleTimeframeOneOf2 model constructor.
+     * @property {module:Vouchery/RuleTimeframeOneOf2}
+     */
+    RuleTimeframeOneOf2,
+
+    /**
      * The RuleTriggersAmount model constructor.
      * @property {module:Vouchery/RuleTriggersAmount}
      */
     RuleTriggersAmount,
+
+    /**
+     * The SubCampaign model constructor.
+     * @property {module:Vouchery/SubCampaign}
+     */
+    SubCampaign,
+
+    /**
+     * The Subscription model constructor.
+     * @property {module:Vouchery/Subscription}
+     */
+    Subscription,
 
     /**
      * The Trigger model constructor.
@@ -320,10 +414,22 @@ export {
     CategoriesApi,
 
     /**
+     * The CompanyApi service constructor.
+     * @property {module:api/CompanyApi}
+     */
+    CompanyApi,
+
+    /**
      * The CustomersApi service constructor.
      * @property {module:api/CustomersApi}
      */
     CustomersApi,
+
+    /**
+     * The ProjectsApi service constructor.
+     * @property {module:api/ProjectsApi}
+     */
+    ProjectsApi,
 
     /**
      * The RedemptionsApi service constructor.
@@ -342,6 +448,12 @@ export {
      * @property {module:api/RulesApi}
      */
     RulesApi,
+
+    /**
+     * The SubscriptionsApi service constructor.
+     * @property {module:api/SubscriptionsApi}
+     */
+    SubscriptionsApi,
 
     /**
      * The TriggersApi service constructor.

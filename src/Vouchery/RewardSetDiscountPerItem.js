@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import RuleProductItemExistsItemConditions from './RuleProductItemExistsItemConditions';
+import RewardSetDiscountPerItemItemConditions from './RewardSetDiscountPerItemItemConditions';
 
 /**
  * The RewardSetDiscountPerItem model module.
@@ -25,7 +25,7 @@ class RewardSetDiscountPerItem {
      * @alias module:Vouchery/RewardSetDiscountPerItem
      * @param type {module:Vouchery/RewardSetDiscountPerItem.TypeEnum} 
      * @param discountValue {Number} 
-     * @param itemConditions {Array.<module:Vouchery/RuleProductItemExistsItemConditions>} Array of item conditions, that item should fit
+     * @param itemConditions {Array.<module:Vouchery/RewardSetDiscountPerItemItemConditions>} Array of item conditions, that item should fit
      */
     constructor(type, discountValue, itemConditions) {
 
@@ -60,8 +60,11 @@ class RewardSetDiscountPerItem {
             if (data.hasOwnProperty('discount_value')) {
                 obj['discount_value'] = ApiClient.convertToType(data['discount_value'], 'Number');
             }
+            if (data.hasOwnProperty('discount_type')) {
+                obj['discount_type'] = ApiClient.convertToType(data['discount_type'], 'String');
+            }
             if (data.hasOwnProperty('item_conditions')) {
-                obj['item_conditions'] = ApiClient.convertToType(data['item_conditions'], [RuleProductItemExistsItemConditions]);
+                obj['item_conditions'] = ApiClient.convertToType(data['item_conditions'], [RewardSetDiscountPerItemItemConditions]);
             }
         }
         return obj;
@@ -81,8 +84,13 @@ RewardSetDiscountPerItem.prototype['type'] = undefined;
 RewardSetDiscountPerItem.prototype['discount_value'] = undefined;
 
 /**
+ * @member {module:Vouchery/RewardSetDiscountPerItem.DiscountTypeEnum} discount_type
+ */
+RewardSetDiscountPerItem.prototype['discount_type'] = undefined;
+
+/**
  * Array of item conditions, that item should fit
- * @member {Array.<module:Vouchery/RuleProductItemExistsItemConditions>} item_conditions
+ * @member {Array.<module:Vouchery/RewardSetDiscountPerItemItemConditions>} item_conditions
  */
 RewardSetDiscountPerItem.prototype['item_conditions'] = undefined;
 
@@ -102,6 +110,33 @@ RewardSetDiscountPerItem['TypeEnum'] = {
      * @const
      */
     "SetDiscountPerItem": "SetDiscountPerItem"
+};
+
+
+/**
+ * Allowed values for the <code>discount_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+RewardSetDiscountPerItem['DiscountTypeEnum'] = {
+
+    /**
+     * value: "cheapest"
+     * @const
+     */
+    "cheapest": "cheapest",
+
+    /**
+     * value: "most_expensive"
+     * @const
+     */
+    "most_expensive": "most_expensive",
+
+    /**
+     * value: "all_products"
+     * @const
+     */
+    "all_products": "all_products"
 };
 
 

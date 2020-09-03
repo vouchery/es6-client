@@ -66,6 +66,9 @@ class Category {
             if (data.hasOwnProperty('updated_at')) {
                 obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
+            if (data.hasOwnProperty('category_type')) {
+                obj['category_type'] = ApiClient.convertToType(data['category_type'], 'String');
+            }
         }
         return obj;
     }
@@ -98,8 +101,40 @@ Category.prototype['created_at'] = undefined;
  */
 Category.prototype['updated_at'] = undefined;
 
+/**
+ * @member {module:Vouchery/Category.CategoryTypeEnum} category_type
+ */
+Category.prototype['category_type'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>category_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Category['CategoryTypeEnum'] = {
+
+    /**
+     * value: "additional"
+     * @const
+     */
+    "additional": "additional",
+
+    /**
+     * value: "customer"
+     * @const
+     */
+    "customer": "customer",
+
+    /**
+     * value: "product"
+     * @const
+     */
+    "product": "product"
+};
 
 
 

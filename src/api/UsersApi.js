@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import InlineResponse2001 from '../Vouchery/InlineResponse2001';
 import User from '../Vouchery/User';
 
 /**
@@ -36,10 +37,10 @@ export default class UsersApi {
 
 
     /**
-     * Get all users within a project
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/User>} and HTTP response
+     * Get information about current user and project
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/InlineResponse2001} and HTTP response
      */
-    getUsersWithHttpInfo() {
+    getMeWithHttpInfo() {
         let postBody = null;
 
         let pathParams = {};
@@ -47,7 +48,92 @@ export default class UsersApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
+        let contentTypes = [];
+        let accepts = ['application/json'];
+        let returnType = InlineResponse2001;
+        return this.apiClient.callApi(
+            '/me', 'GET',
+            pathParams, queryParams, headerParams, formParams, postBody,
+            authNames, contentTypes, accepts, returnType, null
+        );
+    }
+
+    /**
+     * Get information about current user and project
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/InlineResponse2001}
+     */
+    getMe() {
+        return this.getMeWithHttpInfo()
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
+
+    /**
+     * Get a user
+     * @param {String} email User email
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/User} and HTTP response
+     */
+    getUserWithHttpInfo(email) {
+        let postBody = null;
+        // verify the required parameter 'email' is set
+        if (email === undefined || email === null) {
+            throw new Error("Missing the required parameter 'email' when calling getUser");
+        }
+
+        let pathParams = {
+            'email': email
+        };
+        let queryParams = {};
+        let headerParams = {};
+        let formParams = {};
+
+        let authNames = ['Bearer'];
+        let contentTypes = [];
+        let accepts = ['application/json'];
+        let returnType = User;
+        return this.apiClient.callApi(
+            '/users/{email}', 'GET',
+            pathParams, queryParams, headerParams, formParams, postBody,
+            authNames, contentTypes, accepts, returnType, null
+        );
+    }
+
+    /**
+     * Get a user
+     * @param {String} email User email
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/User}
+     */
+    getUser(email) {
+        return this.getUserWithHttpInfo(email)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
+
+    /**
+     * Get all users within a project
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.page Result page (indexed from 1)
+     * @param {Number} opts.perPage Results per page
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/User>} and HTTP response
+     */
+    getUsersWithHttpInfo(opts) {
+        opts = opts || {};
+        let postBody = null;
+
+        let pathParams = {};
+        let queryParams = {
+            'page': opts['page'],
+            'per_page': opts['perPage']
+        };
+        let headerParams = {};
+        let formParams = {};
+
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [User];
@@ -60,10 +146,101 @@ export default class UsersApi {
 
     /**
      * Get all users within a project
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.page Result page (indexed from 1)
+     * @param {Number} opts.perPage Results per page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/User>}
      */
-    getUsers() {
-        return this.getUsersWithHttpInfo()
+    getUsers(opts) {
+        return this.getUsersWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
+
+    /**
+     * Create project user
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/User} opts.user 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/User} and HTTP response
+     */
+    postUsersWithHttpInfo(opts) {
+        opts = opts || {};
+        let postBody = opts['user'];
+
+        let pathParams = {};
+        let queryParams = {};
+        let headerParams = {};
+        let formParams = {};
+
+        let authNames = ['Bearer'];
+        let contentTypes = ['application/json'];
+        let accepts = ['application/json'];
+        let returnType = User;
+        return this.apiClient.callApi(
+            '/users', 'POST',
+            pathParams, queryParams, headerParams, formParams, postBody,
+            authNames, contentTypes, accepts, returnType, null
+        );
+    }
+
+    /**
+     * Create project user
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/User} opts.user 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/User}
+     */
+    postUsers(opts) {
+        return this.postUsersWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
+
+    /**
+     * Update a user
+     * @param {String} email User email
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/User} opts.user 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/User} and HTTP response
+     */
+    updateUserWithHttpInfo(email, opts) {
+        opts = opts || {};
+        let postBody = opts['user'];
+        // verify the required parameter 'email' is set
+        if (email === undefined || email === null) {
+            throw new Error("Missing the required parameter 'email' when calling updateUser");
+        }
+
+        let pathParams = {
+            'email': email
+        };
+        let queryParams = {};
+        let headerParams = {};
+        let formParams = {};
+
+        let authNames = ['Bearer'];
+        let contentTypes = ['application/json'];
+        let accepts = ['application/json'];
+        let returnType = User;
+        return this.apiClient.callApi(
+            '/users/{email}', 'PATCH',
+            pathParams, queryParams, headerParams, formParams, postBody,
+            authNames, contentTypes, accepts, returnType, null
+        );
+    }
+
+    /**
+     * Update a user
+     * @param {String} email User email
+     * @param {Object} opts Optional parameters
+     * @param {module:Vouchery/User} opts.user 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/User}
+     */
+    updateUser(email, opts) {
+        return this.updateUserWithHttpInfo(email, opts)
             .then(function(response_and_data) {
                 return response_and_data.data;
             });

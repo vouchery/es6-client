@@ -308,7 +308,13 @@ ErrorErrors['CodeEnum'] = {
      * value: "not_match"
      * @const
      */
-    "not_match": "not_match"
+    "not_match": "not_match",
+
+    /**
+     * value: "can_not_expire_redeemed"
+     * @const
+     */
+    "can_not_expire_redeemed": "can_not_expire_redeemed"
 };
 
 

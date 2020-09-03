@@ -39,12 +39,12 @@ export default class RulesApi {
      * Create a rule
      * @param {Number} campaignId Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Rule} opts.rule 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Rule} and HTTP response
      */
     createRuleWithHttpInfo(campaignId, opts) {
         opts = opts || {};
-        let postBody = opts['rule'];
+        let postBody = opts['UNKNOWN_BASE_TYPE'];
         // verify the required parameter 'campaignId' is set
         if (campaignId === undefined || campaignId === null) {
             throw new Error("Missing the required parameter 'campaignId' when calling createRule");
@@ -57,7 +57,7 @@ export default class RulesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Rule;
@@ -72,7 +72,7 @@ export default class RulesApi {
      * Create a rule
      * @param {Number} campaignId Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Rule} opts.rule 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Rule}
      */
     createRule(campaignId, opts) {
@@ -102,7 +102,7 @@ export default class RulesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = [];
         let returnType = null;
@@ -145,7 +145,7 @@ export default class RulesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Rule;
@@ -188,7 +188,7 @@ export default class RulesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Rule];
@@ -216,12 +216,12 @@ export default class RulesApi {
      * Update a rule
      * @param {Number} id Rule ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Rule} opts.rule 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Rule} and HTTP response
      */
     updateRuleWithHttpInfo(id, opts) {
         opts = opts || {};
-        let postBody = opts['rule'];
+        let postBody = opts['UNKNOWN_BASE_TYPE'];
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
             throw new Error("Missing the required parameter 'id' when calling updateRule");
@@ -234,7 +234,7 @@ export default class RulesApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Rule;
@@ -249,7 +249,7 @@ export default class RulesApi {
      * Update a rule
      * @param {Number} id Rule ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Rule} opts.rule 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Rule}
      */
     updateRule(id, opts) {

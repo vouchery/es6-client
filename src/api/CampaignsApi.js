@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Campaign from '../Vouchery/Campaign';
+import MainCampaign from '../Vouchery/MainCampaign';
 
 /**
  * Campaigns service.
@@ -38,19 +39,19 @@ export default class CampaignsApi {
     /**
      * Create a campaign
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Campaign} and HTTP response
      */
     createCampaignWithHttpInfo(opts) {
         opts = opts || {};
-        let postBody = opts['campaign'];
+        let postBody = opts['UNKNOWN_BASE_TYPE'];
 
         let pathParams = {};
         let queryParams = {};
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Campaign;
@@ -64,7 +65,7 @@ export default class CampaignsApi {
     /**
      * Create a campaign
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Campaign}
      */
     createCampaign(opts) {
@@ -94,7 +95,7 @@ export default class CampaignsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = [];
         let returnType = null;
@@ -143,7 +144,7 @@ export default class CampaignsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Campaign];
@@ -191,7 +192,7 @@ export default class CampaignsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = Campaign;
@@ -238,7 +239,7 @@ export default class CampaignsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = [];
         let accepts = ['application/json'];
         let returnType = [Campaign];
@@ -267,15 +268,109 @@ export default class CampaignsApi {
 
 
     /**
+     * Get a main campaign
+     * @param {Number} id Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/MainCampaign} and HTTP response
+     */
+    getMainCampaignWithHttpInfo(id) {
+        let postBody = null;
+        // verify the required parameter 'id' is set
+        if (id === undefined || id === null) {
+            throw new Error("Missing the required parameter 'id' when calling getMainCampaign");
+        }
+
+        let pathParams = {
+            'id': id
+        };
+        let queryParams = {};
+        let headerParams = {};
+        let formParams = {};
+
+        let authNames = ['Bearer'];
+        let contentTypes = [];
+        let accepts = ['application/json'];
+        let returnType = MainCampaign;
+        return this.apiClient.callApi(
+            '/main_campaigns/{id}', 'GET',
+            pathParams, queryParams, headerParams, formParams, postBody,
+            authNames, contentTypes, accepts, returnType, null
+        );
+    }
+
+    /**
+     * Get a main campaign
+     * @param {Number} id Campaign ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/MainCampaign}
+     */
+    getMainCampaign(id) {
+        return this.getMainCampaignWithHttpInfo(id)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
+
+    /**
+     * Get main campaigns with children by params
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.nameCont Name contains
+     * @param {String} opts.teamEq Teaml
+     * @param {String} opts.statusEq Status
+     * @param {String} opts.templateEq Template (promotion type) of main campaign
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:Vouchery/MainCampaign>} and HTTP response
+     */
+    getMainCampaignsWithHttpInfo(opts) {
+        opts = opts || {};
+        let postBody = null;
+
+        let pathParams = {};
+        let queryParams = {
+            'name_cont': opts['nameCont'],
+            'team_eq': opts['teamEq'],
+            'status_eq': opts['statusEq'],
+            'template_eq': opts['templateEq']
+        };
+        let headerParams = {};
+        let formParams = {};
+
+        let authNames = ['Bearer'];
+        let contentTypes = [];
+        let accepts = ['application/json'];
+        let returnType = [MainCampaign];
+        return this.apiClient.callApi(
+            '/main_campaigns', 'GET',
+            pathParams, queryParams, headerParams, formParams, postBody,
+            authNames, contentTypes, accepts, returnType, null
+        );
+    }
+
+    /**
+     * Get main campaigns with children by params
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.nameCont Name contains
+     * @param {String} opts.teamEq Teaml
+     * @param {String} opts.statusEq Status
+     * @param {String} opts.templateEq Template (promotion type) of main campaign
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:Vouchery/MainCampaign>}
+     */
+    getMainCampaigns(opts) {
+        return this.getMainCampaignsWithHttpInfo(opts)
+            .then(function(response_and_data) {
+                return response_and_data.data;
+            });
+    }
+
+
+    /**
      * Update a campaign
      * @param {Number} id Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:Vouchery/Campaign} and HTTP response
      */
     updateCampaignWithHttpInfo(id, opts) {
         opts = opts || {};
-        let postBody = opts['campaign'];
+        let postBody = opts['UNKNOWN_BASE_TYPE'];
         // verify the required parameter 'id' is set
         if (id === undefined || id === null) {
             throw new Error("Missing the required parameter 'id' when calling updateCampaign");
@@ -288,7 +383,7 @@ export default class CampaignsApi {
         let headerParams = {};
         let formParams = {};
 
-        let authNames = ['Basic'];
+        let authNames = ['Bearer'];
         let contentTypes = ['application/json'];
         let accepts = ['application/json'];
         let returnType = Campaign;
@@ -303,7 +398,7 @@ export default class CampaignsApi {
      * Update a campaign
      * @param {Number} id Campaign ID
      * @param {Object} opts Optional parameters
-     * @param {module:Vouchery/Campaign} opts.campaign 
+     * @param {module:Vouchery/UNKNOWN_BASE_TYPE} opts.UNKNOWN_BASE_TYPE 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:Vouchery/Campaign}
      */
     updateCampaign(id, opts) {

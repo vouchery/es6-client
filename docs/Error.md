@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 
 * `can_not_be_deleted` (value: `"can_not_be_deleted"`)
 
+* `unknown_attribute` (value: `"unknown_attribute"`)
+
+* `invalid_type` (value: `"invalid_type"`)
+
 * `unknown_error` (value: `"unknown_error"`)
 
 

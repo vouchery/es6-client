@@ -56,9 +56,6 @@ class Voucher {
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-            }
             if (data.hasOwnProperty('campaign_id')) {
                 obj['campaign_id'] = ApiClient.convertToType(data['campaign_id'], 'Number');
             }
@@ -91,11 +88,6 @@ class Voucher {
  * @member {module:Vouchery/Voucher.TypeEnum} type
  */
 Voucher.prototype['type'] = undefined;
-
-/**
- * @member {Number} id
- */
-Voucher.prototype['id'] = undefined;
 
 /**
  * @member {Number} campaign_id
@@ -187,7 +179,13 @@ Voucher['StatusEnum'] = {
      * value: "expired"
      * @const
      */
-    "expired": "expired"
+    "expired": "expired",
+
+    /**
+     * value: "active"
+     * @const
+     */
+    "active": "active"
 };
 
 

@@ -23,12 +23,13 @@ class RuleCustomerCategory {
      * Constructs a new <code>RuleCustomerCategory</code>.
      * @alias module:Vouchery/RuleCustomerCategory
      * @param type {module:Vouchery/RuleCustomerCategory.TypeEnum} 
+     * @param categoryType {module:Vouchery/RuleCustomerCategory.CategoryTypeEnum} 
      * @param matchingType {module:Vouchery/RuleCustomerCategory.MatchingTypeEnum} any_of means that customer should have tags in mentioned category. none_of - customer shouldn't have tags.
      * @param tags {Array.<String>} 
      */
-    constructor(type, matchingType, tags) {
+    constructor(type, categoryType, matchingType, tags) {
 
-        RuleCustomerCategory.initialize(this, type, matchingType, tags);
+        RuleCustomerCategory.initialize(this, type, categoryType, matchingType, tags);
     }
 
     /**
@@ -36,8 +37,9 @@ class RuleCustomerCategory {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, type, matchingType, tags) {
+    static initialize(obj, type, categoryType, matchingType, tags) {
         obj['type'] = type;
+        obj['category_type'] = categoryType;
         obj['matching_type'] = matchingType;
         obj['tags'] = tags;
     }
@@ -55,6 +57,9 @@ class RuleCustomerCategory {
 
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
+            }
+            if (data.hasOwnProperty('category_type')) {
+                obj['category_type'] = ApiClient.convertToType(data['category_type'], 'String');
             }
             if (data.hasOwnProperty('category')) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
@@ -76,6 +81,11 @@ class RuleCustomerCategory {
  * @member {module:Vouchery/RuleCustomerCategory.TypeEnum} type
  */
 RuleCustomerCategory.prototype['type'] = undefined;
+
+/**
+ * @member {module:Vouchery/RuleCustomerCategory.CategoryTypeEnum} category_type
+ */
+RuleCustomerCategory.prototype['category_type'] = undefined;
 
 /**
  * Name of category, rule will be related to.
@@ -110,6 +120,21 @@ RuleCustomerCategory['TypeEnum'] = {
      * @const
      */
     "CustomerCategory": "CustomerCategory"
+};
+
+
+/**
+ * Allowed values for the <code>category_type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+RuleCustomerCategory['CategoryTypeEnum'] = {
+
+    /**
+     * value: "customer"
+     * @const
+     */
+    "customer": "customer"
 };
 
 
